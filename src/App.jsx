@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { Suspense, lazy, useEffect } from 'react'
-import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react"
+import { useSession, useSupabaseClient, useSessionContext } from "@supabase/auth-helpers-react"
 import Layout from './components/layout/Layout'
 
 import './components/topbar/TopBar.css'
@@ -20,6 +20,8 @@ const DomainSettings = lazy(() => import('./screens/site/settings/domain-setting
 export default function App() {
   const session = useSession()
   const supabase = useSupabaseClient()
+  
+  const { session, isLoading } = useSessionContext()
 
   useEffect(() => {
     const autoLogin = async () => {
