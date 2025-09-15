@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useEffect } from 'react'
+import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react"
 import Layout from './components/layout/Layout'
 
 import './components/topbar/TopBar.css'
@@ -17,6 +18,37 @@ const DomainSettings = lazy(() => import('./screens/site/settings/domain-setting
 
 
 export default function App() {
+  const session = useSession()
+  const supabase = useSupabaseClient()
+
+  useEffect(() => {
+    const autoLogin = async () => {
+      if (
+        import.meta.env.DEV &&
+        window.location.hostname === "localhost" &&
+        !session
+      ) {
+        const { error } = await supabase.auth.signInWithPassword({
+          email: import.meta.env.VITE_DEV_EMAIL,
+          password: import.meta.env.VITE_DEV_PASSWORD,
+        })
+        if (error) console.error("Auto-login failed:", error.message)
+      }
+    }
+    autoLogin()
+  }, [session, supabase])
+
+  useEffect(() => {
+    if (
+      !session &&
+      !(import.meta.env.DEV && window.location.hostname === "localhost")
+    ) {
+      window.location.href = "https://auth.hypeify.io"
+    }
+  }, [session])
+
+  if (!session) return null
+
   return (
     <Suspense>
       <Routes>
