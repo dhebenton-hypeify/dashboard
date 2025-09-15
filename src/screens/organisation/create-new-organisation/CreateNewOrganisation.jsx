@@ -19,12 +19,12 @@ export default function CreateNewOrganisation() {
               </div>
               <div className="create-block">
                 <p className="label">Plan</p>
-                <ShortLink style="not-finished" label={"Copy Link"} icon="Chain"/>
+                <ShortLink style="not-finished" label={"Pricing"}/>
                 <PlanDropdown />
               </div>
               <div className="create-block">
                 <label className="label" htmlFor="new-user-email">Invite Users</label>
-                <ShortLink style="not-finished" label={"Pricing"}/>
+                <ShortLink style="not-finished" label={"Copy Link"} icon="Chain"/>
                 <InviteUser />
               </div>
 
