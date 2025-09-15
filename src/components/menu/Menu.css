@@ -113,3 +113,70 @@
 .menu-scroll.heading-margin-right h1{
   margin-right: auto;
 }
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) and (min-width: 1024px){
+  /* =========================================
+    MENU
+  ========================================= */
+
+  .menu {
+    width: 225px;
+  }
+
+  .tab {
+    margin: 0 12px;
+  }
+
+  .menu.org > :last-child {
+    margin: auto 12px 14px 12px;
+  }
+
+  /* =========================================
+    TABS
+  ========================================= */
+
+  .tab {
+    gap: 9px;
+    height: 32px;
+    font-size: 12px;
+    padding: 0 9px;
+  }
+
+  .tan .icon.width {
+    width: 14px;
+  }
+
+  .tab .icon.height {
+    height: 14px;
+  }
+
+  /* =========================================
+    SETTINGS MENU
+  ========================================= */
+
+  .menu.settings > button:first-child {
+    font-size: 13px;
+    margin: 14px 12px 14px 12px;
+    padding-left:6px;
+  }
+
+  /* =========================================
+    SETTINGS TABS
+  ========================================= */
+
+  .tab.settings {
+    height: 29px;
+    font-size: 12px;
+  }
+
+}
+
+@media (max-width: 1023px) {
+  .menu {
+    display: none;
+  }
+}

@@ -64,3 +64,36 @@
 .search-wrap.focus .search-icon-wrap {
     width: 0px;
 }
+
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    /* =========================================
+  SEARCH
+========================================= */
+
+.search-wrap {
+    height: 30px;
+    width: 240px;
+    padding: 0 10px;
+    stroke-width: 1.4px;
+}
+
+.search-wrap .icon {
+    height: 14px;
+}
+
+.search-icon-wrap {
+    width: 20px;
+}
+
+.search-wrap input {
+    font-size: 11px;
+    transform: translateY(0);
+}
+
+}

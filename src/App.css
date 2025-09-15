@@ -134,21 +134,21 @@ h4 {
     TYPOGRAPHY
     ========================================= */
 
-    /*h1 {
-        font-size: 24px;
-    } */
+    h1 {
+        font-size: 22px;
+    } 
 
-    /*h2 {
-        font-size: 16px;
-    }*/
+    h2 {
+        font-size: 18px;
+    }
 
     h3 {
         font-size: 16px;
     }
 
-    /*h4 {
-        font-size: 16px;
-    }*/
+    h4 {
+        font-size: 14px;
+    }
 
     .subheading {
         font-size: 13px;
@@ -231,12 +231,34 @@ h4 {
         padding: 0 0;
     }
 
-    .content {
-        max-height: none;
+    .mob-pad,
+    .wrap-cen {
+        padding: 0 4%;
     }
 
-    .wrap.cen,
     .content-wrap {
-        padding: 0 4%;
+        padding: 0;
+    }
+
+    .menu-scroll {
+        position: sticky;
+        height: auto;
+        padding: 0 4% 36px 4%;
+        width: auto;
+    }
+
+
+    .menu-scroll.stuck {
+        border-bottom: 1px solid #212121;
+        background-color: hsl(0, 0%, 9%, .8);
+        width: auto;
+        padding: 14px 4%;
+        height: auto;
+        backdrop-filter: blur(5px);
+        transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
+    }
+
+    .menu-scroll.stuck h1 {
+        font-size: 16px;
     }
 }

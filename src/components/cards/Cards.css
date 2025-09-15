@@ -47,13 +47,9 @@
     CARD
   ========================================= */
 
-  /*.card {
-    border-radius: 12px;
-    padding: 16px;
-    background-color: hsl(0, 0%, 80%, .02);
-    border:1px solid hsl(0, 0%, 100%, .03);
-    position: relative;
-  } */
+  .card {
+    padding: 14px;
+  } 
 
   /* =========================================
     CARD CREATE

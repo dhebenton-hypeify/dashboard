@@ -4,8 +4,15 @@
 
 .sites-card-wrap {
     grid-row: 1 / 3;
+    align-self: start;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 1730px) {
+    .sites-card-wrap {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .site-card {
@@ -140,4 +147,88 @@
 
 .site-card-link:hover {
     color: #1F77FF !important;
+}
+
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    /* =========================================
+    SITES CARD
+    ========================================= */
+
+    .sites-card-wrap {
+        grid-row: 1 / 3;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .site-card {
+        padding: 4px;
+        flex: 1;
+        height: auto;
+        max-width: calc(50% - 9px);
+        white-space: nowrap;
+    }
+
+    .site-card-content-wrap {
+        padding: 6px;
+    }
+
+    .site-card-content-top-block {
+        row-gap: 5px;
+
+    }
+
+    .site-card-heading {
+        font-size: 14px;
+    }
+
+    .site-card-link {
+        font-size: 12px;
+    }
+
+    .site-card-git-upload {
+        padding: 8px;
+        font-size: 11px;
+    }
+
+    .site-card-git-upload svg {
+        width: 14px;
+        height: auto;
+    }
+
+    .site-card-status-wrap {
+        font-size: 12px;
+    }
+
+    .site-card-status-label {
+        font-size: 11px;
+    }
+
+    .site-card .circle-stat svg {
+        width: 35px;
+        height: auto;
+    }
+
+    .site-card .circle-stat {
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .sites-card-wrap {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .site-card {
+        width: 100%;
+        max-width: none;
+    }
 }

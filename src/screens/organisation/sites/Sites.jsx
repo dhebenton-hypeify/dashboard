@@ -40,7 +40,7 @@ export default function Sites() {
                     Add New Site
                 </ButtonMainBlueIconLight>
             </div>
-            <div className="wrap-medium">
+            <div className="wrap-medium mob-pad">
                 <div className="f-col g32">
                     <div className="f-row sites-filter-bar g12">
                         <Search />
@@ -116,12 +116,19 @@ export default function Sites() {
                             </Card>
                             <div className="f-col g20">
                                 <p className="label">Needs Attention</p>
-                                <Card style="f-row g10">
+                                <Card style="f-row site-list-status g10">
                                     <CheckCircle />
                                     <p className="site-list-status">All sites are running smoothly.</p>
                                 </Card>
                             </div>
                             <div className="sites-card-wrap g20">
+                                <SiteCard />
+                                <SiteCard />
+                                <SiteCard />
+                                <SiteCard />
+                                <SiteCard />
+
+                                <SiteCard />
                                 <SiteCard />
                             </div>
                         </div>

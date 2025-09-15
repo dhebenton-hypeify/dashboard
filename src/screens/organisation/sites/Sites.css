@@ -187,3 +187,113 @@
     transform: translateX(1px);
 }
 
+
+
+
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+
+    /* =========================================
+    TOGGLE BUTTON
+    ========================================= */
+
+    .view-type-toggle {
+        height: 30px;
+    }
+
+    .view-type-toggle button svg {
+        height: 12px;
+        width: auto;
+    }
+
+    /* =========================================
+    EMPTY SITE
+    ========================================= */
+
+    .empty-sites {
+        width: 100%;
+        height: 220px;
+    }
+
+    /* =========================================
+    USAGE CARD
+    ========================================= */
+
+    .usage-block {
+        padding: 9px 6px;
+        font-size: 12px;
+    }
+
+    .usage-block svg {
+        width: 18px;
+    }
+
+    .usage-block-wrap {
+        height: 296px;
+    }
+
+    .usage-block-wrap.colapse {
+        height: 111px;
+    }
+
+    /* =========================================
+    SITES WRAP
+    ========================================= */
+
+    .sites-wrap {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 48px;
+    }
+
+    /* =========================================
+    SITES STATUS
+    ========================================= */
+
+    .site-list-status {
+        font-size: 13px;
+    }
+
+    .site-list-status svg {
+        height: 16px;
+        width: auto;
+    }
+}
+
+
+
+
+
+/* =========================================
+    LAYOUT PHONE CHANGE
+========================================= */
+
+@media (max-width: 767px) {
+    .sites-filter-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .sites-filter-bar .search-wrap {
+        grid-column: 1 / 3;
+        width: 100%;
+    }
+
+    .sites-filter-bar .filter-button {
+        justify-self: start;
+    }
+
+    .sites-filter-bar .view-type-toggle {
+        justify-self: end;
+    }
+
+    .sites-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+}
