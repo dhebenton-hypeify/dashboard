@@ -96,6 +96,7 @@
     display: grid !important;
     padding: 0px 3% !important;
     grid-template-columns: min-content min-content 1fr min-content;
+    border-bottom: 1px solid #212121;
   }
 
   .topbar .searchbar {
@@ -122,7 +123,7 @@
 
   .topbar .button-sec.icon {
     grid-column: 4 / 5;
-    margin: 0px;
+    margin: 0px\;
   }
 
   .topbar .button-menu-wrap {
