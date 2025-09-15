@@ -38,6 +38,10 @@ export default function App() {
     autoLogin()
   }, [session, supabase])
 
+  if (isLoading) {
+    return <div>Loading...</div> // or null
+  }
+
   useEffect(() => {
     if (
       !session &&
