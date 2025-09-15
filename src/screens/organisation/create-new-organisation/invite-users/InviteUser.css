@@ -1,0 +1,18 @@
+/* =========================================
+  PLAN DROPDOWN
+========================================= */
+
+.invite input {
+    width: 100%;
+    margin-right: 16px;
+}
+
+.invite .button {
+    margin-right: -6px;
+    height: 30px;
+}
+
+.invite .button {
+    fill: #E6E6E6;
+}
+

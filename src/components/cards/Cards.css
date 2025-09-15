@@ -1,0 +1,77 @@
+/* =========================================
+  CARD
+========================================= */
+
+.card {
+  border-radius: 12px;
+  padding: 16px;
+  background-color: hsl(0, 0%, 80%, .02);
+  border:1px solid hsl(0, 0%, 100%, .03);
+  position: relative;
+}
+
+/* =========================================
+  CARD CREATE
+========================================= */
+
+.card.create-organisation {
+    padding: 24px;
+    background-color: hsl(0, 0%, 100%, .02);
+    border: 1px solid hsl(0, 0%, 100%, .05);
+    width: 830px;
+}
+
+/* =========================================
+  LABEL
+========================================= */
+
+.label {
+    font-size: 14px;
+    font-variation-settings: 'wght' 630;
+    color: #FCFCFC;
+}
+
+
+
+
+
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+  
+  /* =========================================
+    CARD
+  ========================================= */
+
+  /*.card {
+    border-radius: 12px;
+    padding: 16px;
+    background-color: hsl(0, 0%, 80%, .02);
+    border:1px solid hsl(0, 0%, 100%, .03);
+    position: relative;
+  } */
+
+  /* =========================================
+    CARD CREATE
+  ========================================= */
+
+  .card.create-organisation {
+      padding: 20px;
+      width: 750px;
+  }
+
+  /* =========================================
+    LABEL
+  ========================================= */
+
+  .label {
+      font-size: 13px;
+  }
+
+
+
+}

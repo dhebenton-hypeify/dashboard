@@ -1,0 +1,78 @@
+/* =========================================
+  SEARCHBAR
+========================================= */
+
+.searchbar {
+    cursor: not-allowed;
+    height: 32px;
+    background-color: hsl(0, 0%, 100%, .01);
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid hsl(0, 0%, 25%, .15);
+    width: 190px;
+    color: #333333;
+    font-size: 12px;
+    font-variation-settings: 'wght' 559;
+}
+
+/* =========================================
+  ICON
+========================================= */
+
+.searchbar .icon {
+    margin-right: 10px;
+}
+
+.searchbar .icon {
+    stroke-width: 1.5px;
+    stroke: #333333;
+}
+
+/* =========================================
+  HOVER
+========================================= */
+
+.searchbar:hover {
+    background-color: hsl(0, 0%, 100%, .02);
+    border-color: hsl(0, 0%, 25%, .35);
+    color: #4D4D4D;
+}
+
+.searchbar:hover .icon  {
+    stroke: #4D4D4D;
+}
+
+
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+  /* =========================================
+    SEARCHBAR
+  ========================================= */
+
+  .searchbar {
+      height: 30px;
+      padding: 10px;
+      width: 180px;
+      font-size: 11px;
+  }
+
+  /* =========================================
+    ICON
+  ========================================= */
+
+  .searchbar .icon {
+      margin-right: 8px;
+  }
+
+  .searchbar .icon {
+      stroke-width: 1.4px;
+      height: 14px;
+      width: auto;
+  }
+
+}

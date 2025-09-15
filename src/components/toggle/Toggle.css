@@ -1,0 +1,71 @@
+/* =========================================
+  TOGGLE
+========================================= */
+
+.toggle {
+    width: 45px;
+    height: 21px;
+    background-color: hsl(0, 0%, 100%, .15);
+    border-radius: 50px;
+    box-shadow: inset 0px 1px 5px 1px rgba(0, 0, 0, 40%);
+    padding: 2px;
+}
+
+.toggle-wrap {
+    border-radius: 50px;
+    border: 1px solid transparent;
+    opacity: .8;
+}
+
+.toggle-wrap:hover {
+    opacity: 1;
+}
+
+.toggle-wrap.off {
+    border-radius: 50px;
+    border-color: hsl(0, 0%, 100%, .1);
+}
+
+
+.toggle::before {
+    display: block;
+    height: 100%;
+    transition: all .18s cubic-bezier(0.3, 0.9, 0.4, 1);
+    border-radius: 50px;
+    content: "";
+    aspect-ratio: 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 90%) 0%, rgba(255, 255, 255, 55%) 100%);
+    opacity: .6;
+}
+
+.toggle.on {
+    background-color: #115ED4;
+}
+
+.toggle-wrap.on {
+    border-color: transparent;
+    background-color: #0D68F5;
+}
+
+.toggle.on::before {
+    transform: translateX(24px);
+    opacity: 1;
+}
+
+/* =========================================
+  TEXT
+========================================= */
+
+.toggle-text {
+    font-size: 13px;
+    font-variation-settings: 'wght' 530;
+    color: #333333;
+}
+
+.toggle-text.on {
+    color: #4D4D4D;
+}
+
+.toggle-text.fade {
+    opacity: 0;
+}

@@ -1,0 +1,27 @@
+/* =========================================
+  BUTTON
+========================================= */
+
+.filter-button {
+    background-color: hsl(0, 0%, 100%, .02);
+    border: 1px dashed hsl(0, 0%, 25%, .4);
+    height: 32px;
+    padding: 0 12px;
+    border-radius: 4px;
+    fill: #333333;
+    font-size: 12px;
+    font-variation-settings: 'wght' 530;
+    color: #333333;
+}
+
+.filter-button .icon {
+    width: 14px;
+    height: auto;
+}
+
+.filter-button:hover {
+    background-color: hsl(0, 0%, 100%, .04);
+    border-color: hsl(0, 0%, 25%, .8);
+    color: #404040;
+    fill: #404040;
+}

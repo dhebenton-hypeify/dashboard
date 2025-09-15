@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  letter-spacing: -0.008em;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #171717;
+}
+
+.wrap,
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+
+
+
+/* =========================================
+  TRANSITIONS
+========================================= */
+
+a,
+.trans,
+input,
+button {
+  transition: all .18s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+/* =========================================
+  BUTTON
+========================================= */
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================
+  INPUT
+========================================= */
+
+input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+/* =========================================
+  CURSOS
+========================================= */
+
+a,
+button {
+  cursor: pointer;
+}
+
+.not-finished {
+  cursor: not-allowed !important;
+}
+
+/* =========================================
+  ICONS
+========================================= */
+
+.icon.stroke {
+  fill: none !important;
+}
+
+/* =========================================
+  FLEX
+========================================= */
+
+.f-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  flex: 1;
+}
+
+.cen,
+.f-row {
+  display: flex;
+  align-items: center;
+}
+
+.cen {
+  justify-content: center;
+}
+
+.j-s-b {
+  justify-content: space-between;
+}
+
+.a-s {
+  align-items: stretch;
+}
+
+/* =========================================
+  GAP
+========================================= */
+
+@media (min-width: 1330px) {
+  .g52 {
+    gap: 52px;
+  }
+
+  .g40 {
+    gap: 40px;
+  }
+
+  .g32 {
+    gap: 32px;
+  }
+
+  .g24 {
+    gap: 24px;
+  }
+  
+  .g20 {
+    gap: 20px;
+  }
+
+  .g18 {
+    gap: 18px;
+  }
+
+  .g16 {
+    gap: 16px;
+  }
+
+  .g14 {
+    gap: 14px;
+  }
+
+  .g12 {
+    gap: 12px;
+  }
+
+  .g10 {
+    gap: 10px;
+  }
+
+  .g8 {
+    gap: 8px;
+  }
+
+  .g6 {
+    gap: 6px;
+  }
+}
+
+
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+
+    /* =========================================
+      GAP
+    ========================================= */
+
+      .g52 {
+        gap: 48px;
+      }
+
+      .g40 {
+        gap: 36px;
+      }
+
+      .g32 {
+        gap: 28px;
+      }
+
+      .g24 {
+        gap: 20px;
+      }
+      
+      .g20 {
+        gap: 18px;
+      }
+
+      .g18 {
+        gap: 16px;
+      }
+
+      .g16 {
+        gap: 14px;
+      }
+
+      .g14 {
+        gap: 12px;
+      }
+
+      .g12 {
+        gap: 10px;
+      }
+
+      .g10 {
+        gap: 8px;
+      }
+
+      .g8 {
+        gap: 7px;
+      }
+
+      .g6 {
+        gap: 5px;
+      }
+}

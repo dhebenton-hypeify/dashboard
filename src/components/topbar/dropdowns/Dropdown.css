@@ -1,0 +1,25 @@
+/* =========================================
+  ACCOUNT
+========================================= */
+
+.profile-picture {
+    height: 32px;
+    width: 32px;
+    border-radius: 4px;
+    opacity: .8;
+}
+
+.profile-picture:hover {
+    opacity: 1;
+}
+
+@media (max-width: 1330px) {
+  /* =========================================
+    ACCOUNT
+  ========================================= */
+
+  .profile-picture {
+      height: 28px;
+      width: 28px;
+  }
+} 

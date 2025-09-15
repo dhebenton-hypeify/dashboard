@@ -1,0 +1,77 @@
+/* =========================================
+  BUTTON
+========================================= */
+
+.button-sec {
+    height: 30px;
+    padding: 0 13px;
+    border-radius: 50px;
+    background-color: hsl(0, 0%, 100%, .01);
+    border: 1px solid hsl(0, 0%, 25%, .15);
+    color: #333333;
+    font-variation-settings: 'wght' 600;
+    font-size: 12px;
+}
+
+.button-sec svg {
+    fill: #333333;
+}
+
+/* =========================================
+  HOVER
+========================================= */
+
+.button-sec:hover {
+    background-color: hsl(0, 0%, 100%, .03);
+    border-color: hsl(0, 0%, 25%, .45);
+    color: #595959;
+}
+
+.button-sec:hover svg {
+    fill: #595959;
+}
+
+/* =========================================
+  ICON
+========================================= */
+
+.button-sec.icon {
+    width: 30px;
+    display: flex;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+}
+
+
+
+
+
+
+/* =========================================
+  BREAKPOINT ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+  /* =========================================
+    BUTTON
+  ========================================= */
+
+  .button-sec {
+      height: 28px;
+      padding: 0 12px;
+      font-size: 11px;
+  }
+
+  .button-sec svg {
+      width: 12px;
+      height: auto;
+  }
+
+  .button-sec.icon {
+      width: 28px;
+      height: 28px;
+  }
+
+}

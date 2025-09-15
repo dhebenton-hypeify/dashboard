@@ -1,0 +1,125 @@
+/* =========================================
+  STAGING DOMAIN WRAP
+========================================= */
+
+.settings-staging-domain-wrap {
+    flex: 1;
+    position: relative;
+    color: #474747;
+    font-size: 12px;
+    font-variation-settings: 'wght' 520;
+}
+
+.settings-staging-domain-wrap p {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+.settings-staging-domain-wrap:hover,
+.settings-staging-domain-wrap.focus {
+    color: #545454;
+}
+
+.staging-domain-block .subheading-two {
+    width: 186px;
+    line-height: 1.6;
+}
+
+.staging-domain-block {
+    padding: 0 20px 20px 20px;
+}
+
+/* =========================================
+  DOMAIN BLOCK
+========================================= */
+
+.settings-label-block.domain {
+    display: grid;
+    grid-template-columns: min-content min-content 1fr;
+    white-space: nowrap;
+    column-gap: 12px;
+}
+
+.settings-label-block.domain:hover {
+    background-color: hsl(0, 0%, 70%, .02);
+}
+
+
+.settings-label-block.domain .button.one {
+    justify-self: end;
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+}
+
+.settings-label-block.domain .button.two {
+    justify-self: end;
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+}
+
+.settings-label-block.domain .connection-branch {
+    grid-column: 1 / 3;
+}
+
+.settings-label-block.domain .connection-branch {
+    color: #333333;
+    fill: #333333;
+    font-size: 12px;
+    font-variation-settings: 'wght' 600;
+}
+
+.settings-label-block.domain .connection-branch .branch {
+    width: auto;
+    height: 14px;
+    margin-right: -12px;
+}
+
+.settings-label-block.domain .connection-branch .short-link {
+    margin-right: 0;
+}
+
+/* =========================================
+  DOMAIN DROPDOWN
+========================================= */
+
+.domain-dns-dropdown {
+    font-size: 13px;
+    font-variation-settings: 'wght' 550;
+    color: #404040;
+    justify-self: end;
+    align-self: center;
+    cursor: pointer;
+    grid-row: 1 / 3;
+}
+
+.domain-dns-dropdown:hover {
+    color: #4D4D4D;
+}
+
+/* =========================================
+  DNS
+========================================= */
+
+.domain-dns-record {
+    display: grid;
+    grid-template-columns: 300px 1fr 1fr;
+    fill: #333333;
+    align-items: center;
+    color: #404040;
+    font-size: 14px;
+    font-variation-settings: 'wght' 500;
+}
+
+.domain-dns-record:hover {
+    background-color: hsl(0, 0%, 70%, .02);
+}
+
+.domain-dns-record .label {
+    font-size: 16px;
+}
+
+.domain-dns-record .icon {
+    justify-self: end;
+}

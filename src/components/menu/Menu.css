@@ -1,0 +1,115 @@
+/* =========================================
+  MENU
+========================================= */
+
+.menu {
+  width: 240px;
+  border-right: 1px solid #212121;
+}
+
+.tab {
+  margin: 0 14px;
+}
+
+.menu.org > :last-child {
+  margin: auto 14px 16px 14px;
+}
+
+/* =========================================
+  TABS
+========================================= */
+
+.tab {
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  gap: 10px;
+  height: 35px;
+  font-size: 13px;
+  font-variation-settings: 'wght' 550;
+  color: #595959;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  align-items: center;
+  padding: 0 10px;
+  fill: #595959;
+  justify-items: start;
+}
+
+.tab .icon {
+  justify-self: center;
+  align-self: center;
+}
+
+.tan .icon.width {
+  width: 15px;
+  width: auto;
+}
+
+.tab .icon.height {
+  height: 15px;
+  width: auto;
+}
+
+
+
+
+.tab:hover {
+  background-color: hsl(0, 0%, 100%, .02);
+  border-color: hsl(0, 0%, 100%, .02);
+  color: #7A7A7A;
+  fill: #7A7A7A;
+}
+
+.tab.active {
+  background-color: hsl(0, 0%, 100%, .04);
+  border-color: hsl(0, 0%, 100%, .04);
+  fill: #0D68F5;
+  color: #FCFCFC;
+}
+
+
+/* =========================================
+  SETTINGS MENU
+========================================= */
+
+.menu.settings > button:first-child {
+  font-size: 14px;
+  margin: 16px 14px 16px 14px;
+  fill: #E6E6E6;
+  color: #E6E6E6;
+  font-variation-settings: 'wght' 600;
+  padding-left:6px;
+}
+
+.menu.settings > button:first-child svg {
+  transform: rotate(180deg);
+}
+
+
+.menu.settings > button:first-child:hover {
+  color: white;
+  fill: white;
+}
+
+.menu.settings > button:first-child:hover svg {
+  transform: rotate(180deg) translateX(6px);
+}
+
+/* =========================================
+  SETTINGS TABS
+========================================= */
+
+.tab.settings {
+  height: 30px;
+  display: block;
+  text-align: left;
+  font-size: 12px;
+}
+
+/* =========================================
+  VAIRATIONS
+========================================= */
+
+.menu-scroll.heading-margin-right h1{
+  margin-right: auto;
+}

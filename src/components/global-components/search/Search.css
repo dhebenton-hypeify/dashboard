@@ -1,0 +1,66 @@
+/* =========================================
+  SEARCH
+========================================= */
+
+.search-wrap {
+    background-color: hsl(0, 0%, 100%, .015);
+    border: 1px solid hsl(0, 0%, 25%, .15);
+    stroke: #404040;
+    height: 32px;
+    width: 260px;
+    border-radius: 6px;
+    padding: 0 11px;
+    stroke: #333333;
+    stroke-width: 1.5px;
+    cursor: text;
+}
+
+.search-wrap .icon {
+    height: 15px;
+    width: auto;
+    margin-right: 8px;
+}
+
+.search-icon-wrap {
+    width: 22px;
+    overflow: hidden;
+}
+
+.search-wrap input {
+    font-size: 12px;
+    transform: translateY(-1px);
+    font-variation-settings: 'wght' 550;
+    flex: 1;
+}
+
+.search-wrap input::placeholder {
+    color: #333;
+    transition: all .18s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+/* =========================================
+  HOVER
+========================================= */
+
+.search-wrap:hover {
+    background-color: hsl(0, 0%, 100%, .025);
+    border-color: hsl(0, 0%, 25%, .3);
+    stroke: #404040;
+}
+
+.search-wrap:hover input::placeholder {
+    color: #404040;
+}
+
+/* =========================================
+  FOCUS
+========================================= */
+
+.search-wrap.focus {
+    background-color: hsl(0, 0%, 100%, .03);
+    border-color: hsl(0, 0%, 25%, .45);
+}
+
+.search-wrap.focus .search-icon-wrap {
+    width: 0px;
+}

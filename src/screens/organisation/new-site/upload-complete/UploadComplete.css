@@ -1,0 +1,61 @@
+/* =========================================
+  STRUCUTRE
+========================================= */
+
+.site-complete  .subheading {
+    margin-top: -28px;
+}
+
+.site-complete .site-card-thumbnail {
+  aspect-ratio: 15 / 7.758;
+}
+
+/* =========================================
+  NEXT STEP COMPLETE
+========================================= */
+
+.next-step-button {
+  font-size: 15px;
+  font-variation-settings: 'wght' 630;
+  color: #595959;
+  stroke: #595959;
+  background-color: hsl(0, 0%, 100%, .03);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid hsl(0, 0%, 100%, .04);
+}
+
+.next-step-button .icon-wrap {
+  height: 27px;
+  aspect-ratio: 1;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 5%) 0%, rgba(255, 255, 255, 3%) 100%);
+  border: 1px solid hsl(0, 0%, 100%, .05);
+  border-radius: 50px;
+}
+
+.next-step-button svg {
+  height: 15px;
+  width: auto;
+}
+
+.next-step-button .arrow {
+  margin-left: auto;
+  stroke: none;
+  fill: #404040;
+  height: 10px;
+  width: auto;
+}
+
+.next-step-button:hover {
+  background-color: hsl(0, 0%, 100%, .05);
+  color: #999999;
+  stroke: #999999;
+}
+
+.next-step-button:hover .icon-wrap {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 10%) 0%, rgba(255, 255, 255, 6%) 100%);
+}
+
+.next-step-button:hover .arrow {
+  fill: #4A4A4A;
+}

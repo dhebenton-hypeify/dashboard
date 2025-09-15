@@ -1,0 +1,72 @@
+/* =========================================
+  ORGANISATION TOGGLE
+========================================= */
+
+.organisation-toggle {
+    display: grid;
+    grid-template-columns: 24px auto auto;
+    grid-template-rows: auto auto;
+    row-gap: 4px;
+    margin-bottom: 8px;
+    column-gap: 10px;
+    border-bottom: 1px solid #212121;
+    padding: 16px 14px;
+    fill: #333333;
+    stroke: #333333;
+}
+
+.organisation-icon {
+    width: 24px;
+    aspect-ratio: 1;
+    align-self: center;
+    grid-row: 1 / 3;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #F906ED 0%, #EDF906 100%);
+    opacity: .8;
+}
+
+.organisation-toggle p {
+    font-size: 12px;
+    font-variation-settings: 'wght' 500;
+    justify-self: start;
+    transform: translateY(1px);
+}
+
+
+.org-label {
+    color: #E6E6E6;
+}
+
+.org-plan {
+    color: #4D4D4D;
+    grid-row: 2 / 2;
+}
+
+.organisation-toggle .chevron {
+    grid-row: 1 / 3;
+    justify-self: end;
+    height: 11px;
+    align-self: center;
+}
+
+/* =========================================
+  HOVER
+========================================= */
+
+.organisation-toggle:hover {
+    background-color: hsl(0, 0%, 100%, .03);
+    stroke: #666666;
+    fill: #666666;
+}
+
+.organisation-toggle:hover .org-label {
+    color: #FCFCFC;
+}
+
+.organisation-toggle:hover .org-plan {
+    color: #545454;
+}
+
+.organisation-toggle:hover .organisation-icon {
+    opacity: 1;
+}

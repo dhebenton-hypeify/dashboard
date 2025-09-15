@@ -1,0 +1,189 @@
+/* =========================================
+  LAYOUT
+========================================= */
+
+.sites-filter-bar .search-wrap { 
+    margin-right: auto;
+}
+
+/* =========================================
+  TOGGLE BUTTON
+========================================= */
+
+.view-type-toggle {
+    height: 32px;
+    padding: 3px;
+    background-color: hsl(0, 0%, 100%, .02);
+    border: 1px solid hsl(0, 0%, 25%, .2);
+    position: relative;
+    gap: 3px;
+    border-radius: 4px;
+}
+
+.view-type-toggle::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 3px;
+    z-index: 0;
+    bottom: 3px;
+    aspect-ratio: 1;
+    background-color: hsl(0, 0%, 100%, .03);
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 30%);
+    transition: all .18s cubic-bezier(0.3, 0.9, 0.4, 1);
+    border-radius: 2px;
+}
+
+.view-type-toggle button {
+    height: 100%;
+    z-index: 2;
+    aspect-ratio: 1;
+}
+
+.view-type-toggle > :last-child {
+    fill: #2E2E2E;
+}
+
+.view-type-toggle > :last-child:hover {
+    fill: #3D3D3D;
+}
+
+.view-type-toggle > :first-child {
+    fill: #4D4D4D;
+}
+
+.view-type-toggle.list:before {
+    transform: translateX(27px);
+}
+
+.view-type-toggle.list > :first-child {
+    fill: #2E2E2E;
+}
+
+.view-type-toggle.list > :first-child:hover {
+    fill: #3D3D3D;
+}
+
+.view-type-toggle.list > :last-child {
+    fill: #4D4D4D;
+}
+
+/* =========================================
+  EMPTY SITE
+========================================= */
+
+.empty-sites {
+    width: 100%;
+    height: 240px;
+    border: 1px dashed hsl(0, 0%, 100%, .08);
+    border-radius: 12px;
+}
+
+.empty-sites button {
+    margin-top: 8px;
+}
+
+/* =========================================
+  USAGE CARD
+========================================= */
+
+.usage-block-wrap > :nth-child(even) {
+    background-color: hsl(0, 0%, 60%, .02);
+}
+
+.usage-block svg {
+    opacity: .9;
+}
+
+.usage-block {
+    padding: 10px 7px;
+    border-radius: 3px;
+    color: #E6E6E6;
+    font-variation-settings: 'wght' 500;
+    font-size: 13px;
+}
+
+.usage-block span {
+    margin-left: auto;
+    color: #383838;
+    font-variation-settings: 'wght' 650;
+}
+
+.usage-block:hover {
+    background-color: hsl(0, 0%, 100%, .05);
+    color: white;
+}
+
+.usage-block:hover svg {
+    opacity: 1;
+}
+
+.usage-block:hover span {
+    color: #424242;
+}
+
+.usage-block-wrap {
+    height: 312px;
+    overflow: hidden;
+    transition: all .32s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.usage-block-wrap.colapse {
+    height: 117px;
+}
+
+.card-height-toggle {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateY(50%) translateX(-50%);
+    height: 20px;
+    aspect-ratio: 1;
+    border-radius: 4px;
+    border: 1px solid #252525;
+    background-color: #1C1C1C;
+    fill: #4D4D4D;
+}
+
+.card-height-toggle svg {
+    width: 9px;
+    height: auto;
+    transition: all .32s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.card-height-toggle:hover {
+    background-color: #1F1F1F;
+    border-color: #2B2B2B;
+    fill: #6B6B6B;
+}
+
+.card-height-toggle.open svg {
+    transform: rotate(180deg);
+}
+
+/* =========================================
+  SITES WRAP
+========================================= */
+
+.sites-wrap {
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 52px;
+}
+
+.sites-wrap > :nth-child(2) {
+    grid-row: 2 / 2;
+}
+
+/* =========================================
+  SITES STATUS
+========================================= */
+
+.site-list-status {
+    font-size: 14px;
+    color: #19AA53;
+    font-variation-settings: 'wght' 600;
+    transform: translateX(1px);
+}
+

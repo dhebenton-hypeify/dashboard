@@ -1,0 +1,47 @@
+/* =========================================
+  GIT REPO CARD
+========================================= */
+
+.git-repo-card {
+    padding: 10px;
+    background-color: hsl(0, 0%, 100%, .02);
+    border: 1px solid hsl(0, 0%, 100%, .02);
+    fill: hsl(0, 0%, 100%, .1);
+    font-size: 14px;
+    font-variation-settings: 'wght' 550;
+    color: #E6E6E6;
+    border-radius: 6px;
+}
+
+.git-repo-card:hover {
+    background-color: #1151B3;
+    border-color: hsl(0, 0%, 100%, .15);
+    color: white;
+    fill: hsl(0, 0%, 100%, .8);
+}
+
+.git-repo-thumbnail {
+    width: 23px;
+    aspect-ratio: 1;
+    border: 1px solid hsl(0, 0%, 100%, .1);
+    border-radius: 50px;
+}
+
+.git-repo-card:hover .git-repo-thumbnail {
+    border-color: hsl(0, 0%, 100%, .8);
+}
+
+.git-repo-thumbnail svg{
+    height: 13px;
+    width: auto;
+}
+.git-repo-card span {
+    margin-left: auto;
+    font-size: 13px;
+    font-variation-settings: 'wght' 550;
+    color: #363636;
+}
+
+.git-repo-card:hover span {
+    color: #A9C1E5;
+}

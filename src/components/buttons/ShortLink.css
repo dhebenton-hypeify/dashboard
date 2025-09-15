@@ -1,0 +1,40 @@
+/* =========================================
+  SHORT LINK
+========================================= */
+
+.short-link {
+    font-size: 12px;
+    font-variation-settings: 'wght' 600;
+    color: #135AC9;
+    stroke: #135AC9;
+}
+
+.short-link:hover {
+    color: #166FF8;
+    stroke: #166FF8;
+}
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+  /* =========================================
+    SHORT LINK
+  ========================================= */
+
+  .short-link {
+      font-size: 11px;
+  }
+
+  .short-link svg {
+    height: 11px;
+    width: auto;
+  }
+
+  .short-link:hover {
+      color: #166FF8;
+      stroke: #166FF8;
+  }
+
+}

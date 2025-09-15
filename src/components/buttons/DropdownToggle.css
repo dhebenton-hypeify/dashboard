@@ -1,0 +1,22 @@
+/* =========================================
+  DROPDOWN TOGGLE
+========================================= */
+
+.dropdown-toggle {
+    height: 20px;
+    width: 16px;
+    border-radius: 5px;
+    fill: #404040;
+    stroke: #404040;
+}
+
+.dropdown-toggle svg {
+    height: 9.5px;
+    width: auto;
+}
+.domain-dns-dropdown:hover .dropdown-toggle,
+.dropdown-toggle:hover {
+    fill: #4D4D4D;
+    stroke: #4D4D4D;
+    background-color: hsl(0, 0%, 100%, .04);
+}

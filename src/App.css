@@ -1,0 +1,238 @@
+/* =========================================
+  CONTENT WRAP
+========================================= */
+
+.wrap-medium  {
+    padding: 0 9%;
+    margin: auto;
+}
+
+.wrap-small {
+    width: 1100px;
+}
+
+/* =========================================
+  TYPOGRAPHY
+========================================= */
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-variation-settings: 'wght' 620;
+  color: #fff;
+}
+
+.subheading {
+  font-size: 14px;
+  color: #525252;
+  font-variation-settings: 'wght' 500;
+}
+
+.subheading-two {
+    font-size: 12px;
+    font-variation-settings: 'wght' 500;
+    color: #454545;
+}
+
+/* =========================================
+  STRUCTURE - MENU-SCROLL
+========================================= */
+
+.menu-scroll {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    position: sticky;
+    background-color: hsl(0, 0%, 9%);
+    z-index: 10;
+    top: 0;
+    padding-top: 40px;
+    height: 74px;
+    border: 1px solid transparent;
+    transition: all .4s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu-scroll h1 {
+    transition: all .4s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu-scroll.stuck h1 {
+    transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu-scroll.stuck {
+    border-bottom: 1px solid #212121;
+    padding: 14px 32px;
+    background-color: hsl(0, 0%, 9%, .8);
+    margin: 0px;
+    backdrop-filter: blur(5px);
+    height: 61px;
+    transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
+    width: calc(100vw - 240px);
+}
+
+.menu-scroll.stuck h1 {
+    font-size: 18px;
+}
+
+.content {
+    max-height: 100vh;
+    scrollbar-width: none;
+    overflow-y: scroll;
+}
+
+.content-wrap {
+    padding: 0 0 40px 0; 
+}
+
+.content-wrap.top-pad {
+    padding: 40px 0;
+}
+
+
+
+
+
+
+
+/* =========================================
+    RESPONSIVE ADJUSTMENT
+========================================= */
+
+
+@media (max-width: 1330px) {
+    /* =========================================
+    CONTENT WRAP
+    ========================================= */
+
+    .wrap-medium  {
+        padding: 0 4%;
+        margin: auto;
+    }
+
+    .wrap-small {
+        padding: 0 4%;
+    }
+
+    /* =========================================
+    TYPOGRAPHY
+    ========================================= */
+
+    /*h1 {
+        font-size: 24px;
+    } */
+
+    /*h2 {
+        font-size: 16px;
+    }*/
+
+    h3 {
+        font-size: 16px;
+    }
+
+    /*h4 {
+        font-size: 16px;
+    }*/
+
+    .subheading {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .subheading-two {
+        font-size: 11px;
+    }
+
+    /*/* =========================================
+    STRUCTURE - MENU-SCROLL
+    ========================================= 
+
+    .menu-scroll {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        position: sticky;
+        background-color: hsl(0, 0%, 9%);
+        z-index: 10;
+        top: 0;
+        padding-top: 40px;
+        height: 74px;
+        border: 1px solid transparent;
+        transition: all .4s cubic-bezier(0.3, 0.9, 0.4, 1);
+    }
+
+    .menu-scroll h1 {
+        transition: all .4s cubic-bezier(0.3, 0.9, 0.4, 1);
+    }
+
+    .menu-scroll.stuck h1 {
+        transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
+    }
+
+    .menu-scroll.stuck {
+        border-bottom: 1px solid #212121;
+        padding: 14px 32px;
+        background-color: hsl(0, 0%, 9%, .8);
+        margin: 0px;
+        backdrop-filter: blur(5px);
+        height: 61px;
+        transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
+        width: calc(100vw - 240px);
+    }
+
+    .menu-scroll.stuck h1 {
+        font-size: 18px;
+    }
+
+    .content {
+        max-height: 100vh;
+        scrollbar-width: none;
+        overflow-y: scroll;
+    }
+
+    .content-wrap {
+        padding: 0 0 40px 0; 
+    }
+
+    .content-wrap.top-pad {
+        padding: 40px 0;
+    }
+    */
+}
+
+
+/* =========================================
+    BORDER PADDING
+========================================= */
+
+@media (max-width: 1023px) {
+
+    .wrap-medium  {
+        padding: 0 0;
+        margin: auto;
+    }
+
+    .wrap-small {
+        padding: 0 0;
+    }
+
+    .wrap.cen,
+    .content-wrap {
+        padding: 0 4%;
+    }
+}

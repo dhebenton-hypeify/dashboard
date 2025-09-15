@@ -1,0 +1,140 @@
+/* =========================================
+  TOPBAR
+========================================= */
+
+.topbar {
+    margin: 16px auto !important;
+}
+
+.topbar.general {
+  padding: 0 32px;
+}
+
+.topbar .organisation-toggle.org{
+  display: none;
+}
+
+/* =========================================
+  SPACING
+========================================= */
+
+.topbar .searchbar {
+    margin-left: auto;
+}
+
+.topbar .button-sec.icon {
+    margin-left: -10px;
+}
+
+/* =========================================
+  LOGO
+========================================= */
+
+.logo {
+  opacity: .8;
+}
+
+.logo:hover {
+  opacity: 1;
+}
+
+
+
+
+/* =========================================
+  SCREEN SIZE 2ND SPACING
+========================================= */
+
+@media (max-width: 1330px) {
+  /* =========================================
+    TOPBAR
+  ========================================= */
+
+  .topbar {
+      margin: 14px auto !important;
+      gap: 14px !important;
+  }
+
+  .topbar.general {
+    padding: 0 28px;
+  }
+
+  /* =========================================
+    SPACING
+  ========================================= */
+
+  .topbar .searchbar {
+      margin-left: auto;
+  }
+
+  .topbar .button-sec.icon {
+      margin-left: -6px;
+  }
+
+  /* =========================================
+    LOGO
+  ========================================= */
+
+  .logo {
+    height: 26px;
+    width: auto;
+  }
+
+}
+
+/* =========================================
+  SCREEN SIZE 2ND LAYOUT
+========================================= */
+
+@media (max-width: 1023px) {
+  
+  /* =========================================
+    LAYOUT
+  ========================================= */
+
+  .topbar {
+    display: grid !important;
+    padding: 0px 3% !important;
+    grid-template-columns: min-content min-content 1fr min-content;
+  }
+
+  .topbar .searchbar {
+    display: none;
+  }
+
+  .topbar .seperator {
+    margin: 0 -4%;
+    height: 1px;
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+    background-color: #212121;
+  }
+
+  .topbar .profile-picture {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+  }
+
+  .topbar .button-sec {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .topbar .button-sec.icon {
+    grid-column: 4 / 5;
+    margin: 0px;
+  }
+
+  .topbar .button-menu-wrap {
+    grid-column: 3 / 4;
+    justify-self: end;
+  }
+}
+
+/* =========================================
+  SCREEN SIZE 3RD LAYOUT
+========================================= */
+
+@media (max-width: 1023) {
+  
+}

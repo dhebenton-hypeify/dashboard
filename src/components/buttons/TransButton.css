@@ -1,0 +1,28 @@
+/* =========================================
+  TRANSBUTTON
+========================================= */
+
+.transbutton {
+    height: 28px;
+    width: 28px;
+    border-radius: 5px;
+    fill: #4A4A4A;
+}
+
+.transbutton .path-stroke {
+    fill: none;
+    stroke: #4A4A4A;
+}
+
+.transbutton:hover {
+    background-color: hsl(0, 0%, 100%, .03);
+    fill: #666666;
+}
+
+.transbutton:hover .path-stroke {
+    stroke: #666666;
+}
+
+.transbutton:hover .path-back {
+    stroke: #1E1E1E;
+}

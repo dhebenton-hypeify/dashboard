@@ -1,0 +1,21 @@
+/* =========================================
+  ACCORDATION
+========================================= */
+
+.form-accordation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background-color: hsl(0, 0%, 80%, .01);
+    border:1px solid hsl(0, 0%, 100%, .03);
+    border-radius: 6px;
+    color: #4D4D4D;
+    font-size: 14px;
+    font-variation-settings: 'wght' 550;
+    fill: #4D4D4D;
+}
+
+.form-accordation.bottom {
+    margin-top: -28px;
+}

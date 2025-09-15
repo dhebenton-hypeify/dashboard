@@ -1,0 +1,18 @@
+/* =========================================
+  GO BUTTON
+========================================= */
+
+.go-button {
+    border-radius: 5px;
+    color: #404040;
+    fill: #404040;
+    gap: 9px;
+    font-size: 13px;
+    font-variation-settings: 'wght' 550;
+}
+
+.go-button:hover {
+    color: #4D4D4D;
+    fill: #4D4D4D;
+    gap: 16px;
+}
