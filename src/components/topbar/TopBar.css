@@ -98,6 +98,7 @@
     grid-template-columns: min-content min-content 1fr min-content;
     border-bottom: 1px solid #212121;
   }
+  
 
   .topbar .searchbar {
     display: none;
