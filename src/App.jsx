@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { Suspense, lazy, useEffect } from 'react'
-import { useSession, useSupabaseClient, useSessionContext } from "@supabase/auth-helpers-react"
+import { Suspense, lazy } from 'react'
+import { useSessionContext, useSupabaseClient } from "@supabase/auth-helpers-react"
 import Layout from './components/layout/Layout'
 
 import './components/topbar/TopBar.css'
@@ -16,47 +16,21 @@ const NewSite = lazy(() => import('./screens/organisation/new-site/NewSite'))
 const UploadComplete = lazy(() => import('./screens/organisation/new-site/upload-complete/UploadComplete'))
 const DomainSettings = lazy(() => import('./screens/site/settings/domain-settings/DomainSettings'))
 
-
 export default function App() {
-  const session = useSession()
   const supabase = useSupabaseClient()
-  
   const { session, isLoading } = useSessionContext()
 
-  useEffect(() => {
-    const autoLogin = async () => {
-      if (
-        import.meta.env.DEV &&
-        window.location.hostname === "localhost" &&
-        !session
-      ) {
-        const { error } = await supabase.auth.signInWithPassword({
-          email: import.meta.env.VITE_DEV_EMAIL,
-          password: import.meta.env.VITE_DEV_PASSWORD,
-        })
-        if (error) console.error("Auto-login failed:", error.message)
-      }
-    }
-    autoLogin()
-  }, [session, supabase])
-
   if (isLoading) {
-    return <div>Loading...</div> // or null
+    return <div>Loading...</div> // temporary placeholder
   }
 
-  useEffect(() => {
-    if (
-      !session &&
-      !(import.meta.env.DEV && window.location.hostname === "localhost")
-    ) {
-      window.location.href = "https://auth.hypeify.io"
-    }
-  }, [session])
-
-  if (!session) return null
+  if (!session) {
+    window.location.href = "https://auth.hypeify.io"
+    return null
+  }
 
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/create-organisation" element={<CreateNewOrganisation />} />
