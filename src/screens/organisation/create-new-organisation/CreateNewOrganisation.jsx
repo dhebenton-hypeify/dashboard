@@ -9,7 +9,7 @@ export default function CreateNewOrganisation() {
   const navigate = useNavigate();
 
   return (
-    <div className="cen new-org wrap">
+    <div className="cen mob-pad new-org wrap">
           <CardCreate style="f-col g52 new create-organisation">
               <h3>New Organisation</h3>
               <p className="subheading">Bring your sites together under one roof, neatly grouped, easy to manage, and ready to grow.</p>
