@@ -371,10 +371,10 @@
 @media (max-width: 1023px) {
   .menu-wrap {
     position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
     width: 100%;
     height: 100%;
     background-color: hsl(0, 0%, 0%, .02);
