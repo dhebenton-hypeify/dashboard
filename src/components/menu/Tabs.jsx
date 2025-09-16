@@ -1,28 +1,30 @@
-import { Backups, Bell, Rocket, Users } from "../../assets/Icons";
+import { Backups, Bell, Gear, Rocket, Users } from "../../assets/Icons";
 
 
 export const OrgTabs = () => {
     return (
         <>
-            <button className="tab active">
+            <button className="tab menu-load-in active">
                 <Backups />
-                Sites
+                <span>Sites</span>
             </button>
-            <button className="tab not-finished">
+            <button className="tab menu-load-in not-finished">
                 <Bell />
-                Notifications
+                <span>Notifications</span>
             </button>
-            <button className="tab not-finished">
+            <button className="tab menu-load-in not-finished">
                 <Users />
-                Organisation Members
+                <span>Organisation Members</span>
             </button>
-            <button className="tab not-finished">
+            <button className="tab menu-load-in not-finished">
                 <Rocket />
-                Plans & Billing
+                <span>Plans & Billing</span>
             </button>
-            <button className="tab not-finished">
-                <Backups />
-                Organisation Settings
+            <button className="tab menu-load-in not-finished">
+                <Gear />
+                <span>
+                    Organisation Settings
+                </span>
             </button>
         </>
     )

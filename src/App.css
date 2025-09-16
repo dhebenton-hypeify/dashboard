@@ -82,9 +82,8 @@ h4 {
     background-color: hsl(0, 0%, 9%, .8);
     margin: 0px;
     backdrop-filter: blur(5px);
-    height: 61px;
+    height: 57px;
     transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
-    width: calc(100vw - 240px);
 }
 
 .menu-scroll.stuck h1 {
@@ -184,16 +183,6 @@ h4 {
         transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
     }
 
-    .menu-scroll.stuck {
-        border-bottom: 1px solid #212121;
-        padding: 14px 32px;
-        background-color: hsl(0, 0%, 9%, .8);
-        margin: 0px;
-        backdrop-filter: blur(5px);
-        height: 61px;
-        transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
-        width: calc(100vw - 240px);
-    }
 
     .menu-scroll.stuck h1 {
         font-size: 18px;
@@ -213,6 +202,21 @@ h4 {
         padding: 40px 0;
     }
     */
+
+    .menu-scroll {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .menu-scroll.stuck {
+        padding: 12px 4%;
+        margin: 0px;
+        height: 57px;
+    }
+
+    .menu-scroll.stuck h1 {
+        font-size: 16px;
+    }
 }
 
 
@@ -242,8 +246,9 @@ h4 {
     .menu-scroll {
         position: sticky;
         height: auto;
-        padding: 0 4% 36px 4%;
+        padding: 36px 4% 36px 4%;
         width: auto;
+        margin: 0;
     }
 
 
@@ -252,6 +257,7 @@ h4 {
         background-color: hsl(0, 0%, 9%, .8);
         width: auto;
         padding: 14px 4%;
+        margin: 0;
         height: auto;
         backdrop-filter: blur(5px);
         transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);

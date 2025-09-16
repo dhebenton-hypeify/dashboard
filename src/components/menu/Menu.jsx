@@ -1,21 +1,36 @@
-import { ArrowRight, CollapseControls, Ship } from "../../assets/Icons"
+import { ArrowRight, Ship } from "../../assets/Icons"
 import Organisation from "./dropdowns/Organisation"
 import { OrgTabs, SiteSettingsTabs } from "./Tabs"
 import './Menu.css'
 import { ButtonTrans } from "../buttons/TransButton"
+import MenuControls from "./menu-controls-dropdown/MenuControls"
+import { useState } from "react"
 
-export const MenuOrg = ({}) => {
+export const MenuOrg = () => {
+    const [ navigationState, setNavigationState ] = useState('expanded')
+    const [ navigationHover, setNavigationHover ] = useState(false)
+
+    function handleNavigationHover() {
+        setNavigationHover(true)
+        setTimeout(() => setNavigationHover(false), 200)
+    }
+
     return (
-        <div className={`menu org f-col g8`}>
-            <Organisation />
-            <OrgTabs />
-            <div className="f-row j-s-b">
-                <ButtonTrans style="not-finished">
-                    <Ship />
-                </ButtonTrans>
-                <ButtonTrans style="not-finished">
-                    <CollapseControls />
-                </ButtonTrans>
+        <div className={`menu-wrap ${navigationState}`}>
+            <div onMouseEnter={() => handleNavigationHover()} className={`menu org dropdown-wrap ${navigationState} ${navigationHover ? 'hover' : ''} f-col g8`}>
+                <Organisation />
+                <OrgTabs />
+                <div className="f-row j-s-b menu-load-in">
+                    <div className="change-log">
+                        <ButtonTrans style="not-finished ">
+                            <Ship />
+                        </ButtonTrans>
+                    </div>
+                    <MenuControls
+                        navigationState={navigationState}
+                        setNavigationState={setNavigationState}
+                    />
+                </div>
             </div>
         </div>
     )

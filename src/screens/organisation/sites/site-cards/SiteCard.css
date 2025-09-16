@@ -167,7 +167,7 @@
     }
 
     .site-card {
-        padding: 4px;
+        padding: 6px;
         flex: 1;
         height: auto;
         max-width: calc(50% - 9px);
@@ -175,42 +175,42 @@
     }
 
     .site-card-content-wrap {
-        padding: 6px;
+        padding: 8px;
     }
 
     .site-card-content-top-block {
-        row-gap: 5px;
+        row-gap: 6px;
 
     }
 
     .site-card-heading {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .site-card-link {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .site-card-git-upload {
-        padding: 8px;
-        font-size: 11px;
+        padding: 10px;
+        font-size: 12px;
     }
 
     .site-card-git-upload svg {
-        width: 14px;
+        width: 15px;
         height: auto;
     }
 
     .site-card-status-wrap {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .site-card-status-label {
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .site-card .circle-stat svg {
-        width: 35px;
+        width: 36px;
         height: auto;
     }
 
@@ -222,7 +222,6 @@
 
 @media (max-width: 767px) {
     .sites-card-wrap {
-        display: flex;
         width: 100%;
         flex-direction: column;
     }

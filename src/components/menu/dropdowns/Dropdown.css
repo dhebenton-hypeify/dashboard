@@ -1,0 +1,424 @@
+/* =========================================
+  DROPDOWN
+========================================= */
+
+.dropdown-wrap {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    left: 12px;
+    bottom: -12px;
+    background-color: hsl(0, 0%, 12%, .95);
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid hsl(0, 0%, 100%, .04);
+    backdrop-filter: blur(5px);
+    transition: all .32s cubic-bezier(0.3, 0.9, 0.4, 1);
+    transform: translateY(100%) scale(97%);
+    opacity: 0;
+}
+
+.dropdown.open {
+    bottom: 0px;
+    transform: translateY(100%);
+    opacity: 1;
+}
+
+/* =========================================
+  DROPDOWN SEARCH
+========================================= */
+
+.dropdown-search-wrap {
+    margin: -6px -6px 6px -6px ;
+    padding: 10px 14px;
+    border-bottom: 1px solid hsl(0, 0%, 100%, .04);
+    stroke-width: 1.8;
+    stroke: #404040;
+}
+
+.dropdown-search-wrap svg {
+    margin-right: 8px;
+    height: 15px;
+    width: auto;
+}
+
+.dropdown-search-icon-wrap {
+    width: 22px;
+    overflow: hidden;
+}
+
+.dropdown-search-wrap input {
+    font-size: 12px;
+    font-variation-settings: 'wght' 550;
+    color: white;
+}
+
+.dropdown-search-wrap input::placeholder {
+    color: #404040;
+    transition: all .18s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+
+.dropdown-search-wrap:hover{
+    stroke: #4A4A4A;
+}
+
+.dropdown-search-wrap:hover input::placeholder {
+    color: #4A4A4A;
+}
+
+.dropdown-search-wrap.focus .dropdown-search-icon-wrap {
+    width: 0px;
+}
+
+/* =========================================
+    DROPDOWN TAB
+========================================= */
+
+.dropdown-tab {
+    height: 30px;
+    text-align: left;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-variation-settings: 'wght' 560;
+    color: #E3E3E3;
+    width: 100%;
+}
+
+.dropdown-tab:hover {
+    color: white;
+    background-color: hsl(0, 0%, 100%, .05);
+}
+
+
+/* =========================================
+  DROPDOWN LAST BLOCK
+========================================= */
+
+.dropdown-bottom-block {
+    margin: 6px -6px -6px -6px ;
+    border-top: 1px solid hsl(0, 0%, 100%, .04);
+    padding: 6px;
+}
+
+.dropdown-tab.create-new {
+    fill: #0D68F5;
+}
+
+
+/* =========================================
+  ORGANISATION DROPDOWN 
+========================================= */
+
+.dropdown.organisation {
+    width: 240px;
+    z-index: 1000;
+}
+
+.dropdown-tab.org .organisation-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+}
+
+.dropdown-tab.org.active .organisation-icon,
+.dropdown-tab.org:hover .organisation-icon {
+    opacity: 1;
+}
+
+.dropdown-tab.org .check {
+    opacity: 0;
+    margin-left: auto;
+    fill: #404040;
+}
+
+.dropdown-tab.org.active .check {
+    opacity: 1;
+}
+
+.dropdown-tab.org.active {
+    background-color: hsl(0, 0%, 100%, .03);
+    color: #F2F2F2;
+}
+
+
+
+/* =========================================
+  ORGANISATION TOGGLE
+========================================= */
+
+.organisation-toggle {
+    display: grid;
+    grid-template-columns: 24px auto auto;
+    grid-template-rows: auto auto;
+    row-gap: 4px;
+    margin-bottom: 8px;
+    column-gap: 10px;
+    border-bottom: 1px solid #212121;
+    padding: 14px 16px;
+    width: 100%;
+    fill: #333333;
+    white-space: nowrap;
+    stroke: #333333;
+}
+
+.menu-org-load-in {
+    animation: fade-in .3s ease;
+}
+
+img.menu-org-load-in {
+    animation: fade-in-img .3s ease;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-img {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: .8;
+    }
+}
+
+.organisation-icon {
+    width: 24px;
+    aspect-ratio: 1;
+    align-self: center;
+    grid-row: 1 / 3;
+    border-radius: 4px;
+    opacity: .8;
+}
+
+.organisation-toggle p {
+    font-size: 12px;
+    font-variation-settings: 'wght' 500;
+    justify-self: start;
+    transform: translateY(1px);
+}
+
+
+.org-label {
+    color: #E6E6E6;
+}
+
+.org-plan {
+    color: #4D4D4D;
+    grid-row: 2 / 2;
+}
+
+.organisation-toggle .chevron {
+    grid-row: 1 / 3;
+    justify-self: end;
+    height: 11px;
+    align-self: center;
+}
+
+/* =========================================
+  HOVER
+========================================= */
+
+
+.dropdown-wrap.open .organisation-toggle,
+.organisation-toggle:hover {
+    background-color: hsl(0, 0%, 100%, .03);
+    stroke: #666666;
+    fill: #666666;
+}
+
+
+.dropdown-wrap.open .organisation-toggle .org-label,
+.organisation-toggle:hover .org-label {
+    color: #FCFCFC;
+}
+.dropdown-wrap.open .organisation-toggle .org-plan,
+.organisation-toggle:hover .org-plan {
+    color: #545454;
+}
+
+.dropdown-wrap.open .organisation-toggle .organisation-icon,
+.organisation-toggle:hover .organisation-icon {
+    opacity: 1;
+}
+
+/* =========================================
+  MENU CONTROLS
+========================================= */
+
+.dropdown.menu-controls {
+    bottom: auto;
+    top: -16px;
+    transform: translateY(-100%) scale(97%);
+    left: auto;
+    width: 140px;
+}
+
+.dropdown.menu-controls.open {
+    transform: translateY(-100%);
+    top: -8px;
+}
+
+.dropdown.menu-controls .dropdown-tab {
+    height: 28px;
+    font-variation-settings: 'wght' 500;
+}
+
+.dropdown.menu-controls .dropdown-tab.active {
+    color: #595959;
+    cursor: default;
+}
+
+.dropdown.menu-controls .dropdown-tab.active:hover {
+    color: #595959;
+    background-color: transparent;
+}
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+
+    /* =========================================
+    DROPDOWN
+    ========================================= */
+    .dropdown {
+        left: 10px;
+        bottom: -10px;
+        padding: 5px;
+    }
+
+    /* =========================================
+    DROPDOWN SEARCH
+    ========================================= */
+
+    .dropdown-search-wrap {
+        margin: -5px -5px 5px -6px ;
+        padding: 8px 12px;
+        stroke-width: 1.7;
+    }
+
+    .dropdown-search-wrap svg {
+        margin-right: 7px;
+        height: 14px;
+    }
+
+    .dropdown-search-icon-wrap {
+        width: 20px;
+    }
+
+    .dropdown-search-wrap input {
+        font-size: 11px;
+    }
+
+    /* =========================================
+        DROPDOWN TAB
+    ========================================= */
+
+    .dropdown-tab {
+        height: 28px;
+        padding: 6px;
+        font-size: 11px;
+    }
+
+
+    /* =========================================
+    DROPDOWN LAST BLOCK
+    ========================================= */
+
+    .dropdown-bottom-block {
+        margin: 5px -5px -5px -5px ;
+        padding: 5px;
+    }
+
+    .dropdown-tab.create-new svg {
+        width: 14px;
+        height: auto;
+    }
+
+    /* =========================================
+    ORGANISATION DROPDOWN 
+    ========================================= */
+
+    .dropdown.organisation {
+        width: 220px;
+    }
+
+    .dropdown-tab.org .organisation-icon {
+        width: 15px;
+        height: 15px;
+    }
+
+    /* =========================================
+    ORGANISATION TOGGLE
+    ========================================= */
+
+    .organisation-toggle {
+        grid-template-columns: 22px auto auto;
+        row-gap: 4px;
+        margin-bottom: 8px;
+        column-gap: 9px;
+        padding: 12px 12px;
+    }
+
+    .organisation-icon {
+        width: 22px;
+        aspect-ratio: 1;
+        border-radius: 3px;
+    }
+
+    .organisation-toggle p {
+        font-size: 11px;
+    }
+
+
+    .organisation-toggle .chevron {
+        height: 10px;
+    }
+
+    /* =========================================
+        MENU CONTROLS
+    ========================================= */
+
+    .dropdown.menu-controls {
+        top: -14px;
+        width: 120px;
+    }
+
+    .dropdown.menu-controls.open {
+        top: -7px;
+    }
+
+    .dropdown.menu-controls .dropdown-tab {
+        height: 27px;
+    }
+
+}
+
+@media (max-width: 1023px) {
+    .dropdown-wrap.organisation {
+        display: none;
+    }
+}
+
+
+

@@ -5,6 +5,8 @@
 .menu {
   width: 240px;
   border-right: 1px solid #212121;
+  height: 100%;
+  transition: all .38s cubic-bezier(0.3, 0.9, 0.4, 1);
 }
 
 .tab {
@@ -14,6 +16,131 @@
 .menu.org > :last-child {
   margin: auto 14px 16px 14px;
 }
+
+/* =========================================
+  MENU COLLAPSED
+========================================= */
+
+.menu.on-hover .change-log,
+.menu.on-hover .org-label,
+.menu.on-hover .org-plan,
+.menu.on-hover .chevron,
+.menu.collapsed .change-log,
+.menu.collapsed .organisation-toggle .org-label,
+.menu.collapsed .organisation-toggle .org-plan,
+.menu.collapsed .organisation-toggle .chevron {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu.on-hover.hover .change-log,
+.menu.on-hover.hover .org-label,
+.menu.on-hover.hover .org-plan,
+.menu.on-hover.hover .chevron,
+.menu.expanded .change-log,
+.menu.expanded .organisation-toggle .org-label,
+.menu.expanded .organisation-toggle .org-plan,
+.menu.expanded .organisation-toggle .chevron {
+  transition: all .19s cubic-bezier(0.3, 0.9, 0.4, 1) .19s !important;
+}
+
+
+.menu .organisation-toggle .organisation-icon {
+  transition: opacity .18s cubic-bezier(0.3, 0.9, 0.4, 1), transform .38s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu.on-hover .organisation-toggle .organisation-icon,
+.menu.collapsed .organisation-toggle .organisation-icon {
+  transform: translateX(4px);
+}
+
+.menu.collapsed {
+  width: 64px;
+}
+
+.menu .tab svg,
+.menu.on-hover .dropdown-wrap.menu-controls,
+.menu.collapsed .dropdown-wrap.menu-controls {
+  transition: opacity .18s cubic-bezier(0.3, 0.9, 0.4, 1), transform .38s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu.on-hover .dropdown-wrap.menu-controls,
+.menu.collapsed .dropdown-wrap.menu-controls {
+  transform: translateX(-24px);
+}
+
+
+.menu.on-hover.hover .change-log,
+.menu.on-hover.hover .tab span,
+.menu.expanded .change-log,
+.menu.expanded .tab span {
+  transition: all .19s cubic-bezier(0.3, 0.9, 0.4, 1) .19s !important;
+}
+
+.menu.on-hover .tab span,
+.menu.collapsed .tab span{
+  opacity: 0;
+  transition: all .19s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu.on-hover .tab svg,
+.menu.collapsed .tab svg {
+  transform: translateX(-1px);
+}
+
+/* =========================================
+  MENU HOVER
+========================================= */
+
+.menu.on-hover {
+  width: 64px;
+  z-index: 20000;
+  background-color: #171717;
+}
+
+.menu.on-hover:hover {
+  width: 240px;
+}
+
+.menu.on-hover:hover .dropdown-wrap.menu-controls {
+  transform: translateX(0);
+}
+
+.menu.on-hover:hover .tab span {
+  opacity: 1;
+}
+
+.menu.on-hover:hover .tab svg {
+  transform: translateX(0);
+}
+
+.menu.on-hover:hover .change-log,
+.menu.on-hover:hover .org-label,
+.menu.on-hover:hover .org-plan,
+.menu.on-hover:hover .chevron {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu.on-hover:hover .organisation-toggle .organisation-icon {
+  transform: translateX(0);
+}
+
+/* =========================================
+  MENU WRAP
+========================================= */
+
+
+.menu-wrap {
+  width: 240px;
+  transition: all .38s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu-wrap.on-hover,
+.menu-wrap.collapsed {
+  width: 64px;
+}
+
 
 /* =========================================
   TABS
@@ -31,6 +158,7 @@
   border: 1px solid transparent;
   align-items: center;
   padding: 0 10px;
+  white-space: nowrap;
   fill: #595959;
   justify-items: start;
 }
@@ -136,6 +264,71 @@
   }
 
   /* =========================================
+    MENU COLLAPSED
+  ========================================= */
+
+
+
+  .menu.on-hover .organisation-toggle .organisation-icon,
+  .menu.collapsed .organisation-toggle .organisation-icon {
+    transform: translateX(5px);
+  }
+
+  .menu.collapsed {
+    width: 56px;
+  }
+
+  .menu.on-hover .dropdown-wrap.menu-controls,
+  .menu.collapsed .dropdown-wrap.menu-controls {
+    transform: translateX(-26px);
+  }
+
+
+  .menu.on-hover .tab svg,
+  .menu.collapsed .tab svg {
+    transform: translateX(-3px);
+  }
+
+  /* =========================================
+    MENU HOVER
+  ========================================= */
+
+  .menu.on-hover {
+    width: 56px;
+  }
+
+  .menu.on-hover:hover {
+    width: 225px;
+  }
+
+  .menu.on-hover:hover .dropdown-wrap.menu-controls {
+    transform: translateX(0);
+  }
+
+  .menu.on-hover:hover .tab svg {
+    transform: translateX(0);
+  }
+
+  .menu.on-hover:hover .organisation-toggle .organisation-icon {
+    transform: translateX(0);
+  }
+
+  /* =========================================
+    MENU WRAP
+  ========================================= */
+
+
+  .menu-wrap {
+    width: 225px;
+    transition: all .38s cubic-bezier(0.3, 0.9, 0.4, 1);
+  }
+
+  .menu-wrap.on-hover,
+  .menu-wrap.collapsed {
+    width: 56px;
+  }
+
+  /* =========================================
     TABS
   ========================================= */
 
@@ -176,7 +369,73 @@
 }
 
 @media (max-width: 1023px) {
+  .menu-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: hsl(0, 0%, 0%, .02);
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: end;
+  }
+
   .menu {
+    width: 100%;
+    height: auto;
+    background-color: #1A1A1A;
+    padding: 4% 28px;
+    border-radius: 12px 12px 0 0 ;
+    border-top: 1px solid hsl(0, 0%, 100%, .1);
+  }
+
+  .menu > :last-child {
     display: none;
   }
+
+  .tab {
+    font-size: 15px;
+    height: 42px;
+    margin: 0;
+    padding: 0 12px;
+    gap: 12px;
+    grid-template-columns: 20px 1fr;
+  }
+
+  .tab .icon.height {
+    height: 20px;
+    width: auto;
+  }
+
+  .tab .icon.width {
+    width: 20px;
+    height: auto;
+  }
+}
+
+
+@media (max-width: 767px) {
+    .menu {
+      padding: 24px 3%;
+    }
+
+    .tab {
+      font-size: 13px;
+      height: 36px;
+      padding: 0 10px;
+      gap: 10px;
+      grid-template-columns: 16px 1fr;
+    }
+
+    .tab .icon.height {
+      height: 16px;
+      width: auto;
+    }
+
+    .tab .icon.width {
+      width: 16px;
+      height: auto;
+    }
 }

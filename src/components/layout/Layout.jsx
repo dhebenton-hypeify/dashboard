@@ -10,7 +10,7 @@ export default function Layout( ) {
     const contentRef = useRef(null)
 
     const isNewSite = pathname.startsWith('/new-site')
-    const isOrg = pathname === '/org'
+    const isOrg = pathname.startsWith('/org')
     const isSite = pathname.startsWith('/org/sites')
     const isSiteSettings = pathname.startsWith('/org/site/settings')
 
@@ -26,7 +26,7 @@ export default function Layout( ) {
             smoothTouch: false,
             
     })
-    
+
     window.lenis = lenis
 
     function raf(time) {

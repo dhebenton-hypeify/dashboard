@@ -294,6 +294,7 @@
 
     .sites-wrap {
         display: flex;
+        gap: 28px !important;
         flex-direction: column;
     }
 }

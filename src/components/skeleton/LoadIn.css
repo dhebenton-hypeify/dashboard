@@ -1,0 +1,83 @@
+
+/* =========================================
+  SKELETON
+========================================= */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #1e1e1e 0%,
+    #2a2a2a 20%,
+    #1e1e1e 40%,
+    #1e1e1e 100%
+  );
+  background-size: 200% 100%;
+  border-radius: 6px;
+  width: 100%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+
+/* =========================================
+  POSITIONS
+========================================= */
+
+.menu .organisation-toggle .skeleton {
+    grid-column: 1 / 4;
+    height: 24px;
+    animation: skeleton-loading 2s linear infinite, menu-load-in .19s ease;
+}
+
+/* =========================================
+  MENU LOAD IN
+========================================= */
+
+.menu-load-in {
+  animation: menu-load-in .19s ease forwards;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.menu-load-in:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.menu-load-in:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.menu-load-in:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.menu-load-in:nth-child(5) {
+  animation-delay: 0.24s;
+}
+
+.menu-load-in:nth-child(6) {
+  animation-delay: 0.3s;
+}
+
+.menu-load-in:nth-child(7) {
+  animation-delay: 0.36s;
+}
+
+@keyframes menu-load-in {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

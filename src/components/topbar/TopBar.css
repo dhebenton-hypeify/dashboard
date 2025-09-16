@@ -97,7 +97,7 @@
     padding: 14px 3% !important;
     grid-template-columns: min-content min-content 1fr min-content;
     border-bottom: 1px solid #212121;
-    margin: 0;
+    margin: 0 !important; 
   }
   
 
@@ -132,12 +132,4 @@
     grid-column: 3 / 4;
     justify-self: end;
   }
-}
-
-/* =========================================
-  SCREEN SIZE 3RD LAYOUT
-========================================= */
-
-@media (max-width: 1023) {
-  
 }
