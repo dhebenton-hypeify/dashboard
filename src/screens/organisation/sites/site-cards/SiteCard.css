@@ -79,6 +79,7 @@
     border-radius: 8px;
     fill: #DEDEDE;
     color: #DEDEDE;
+    overflow: hidden;
     font-size: 12px;
     font-variation-settings: 'wght' 550;
     line-height: 0;
@@ -197,7 +198,7 @@
     }
 
     .site-card-git-upload svg {
-        width: 15px;
+        min-width: 15px;
         height: auto;
     }
 

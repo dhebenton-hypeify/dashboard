@@ -371,6 +371,7 @@
 @media (max-width: 1023px) {
   .menu-wrap {
     position: fixed;
+    display: none;
     left: 0 !important;
     top: 0 !important;
     bottom: 0 !important;
@@ -380,7 +381,6 @@
     background-color: hsl(0, 0%, 0%, .02);
     z-index: 100000;
     backdrop-filter: blur(5px);
-    display: flex;
     align-items: end;
   }
 

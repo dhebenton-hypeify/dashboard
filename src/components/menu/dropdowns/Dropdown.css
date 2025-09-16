@@ -319,11 +319,11 @@ img.menu-org-load-in {
 
     .dropdown-search-wrap svg {
         margin-right: 7px;
-        height: 14px;
+        height: 13px;
     }
 
     .dropdown-search-icon-wrap {
-        width: 20px;
+        width: 19px;
     }
 
     .dropdown-search-wrap input {
@@ -415,10 +415,362 @@ img.menu-org-load-in {
 }
 
 @media (max-width: 1023px) {
-    .dropdown-wrap.organisation {
+    .menu .dropdown-wrap.organisation {
         display: none;
     }
+
+    .organisation-toggle {
+        display: flex !important;
+        border-bottom: none;
+        padding: 0px;
+        align-items: center;
+        margin: 0;
+    }
+
+    /* =========================================
+    DROPDOWN
+    ========================================= */
+
+    .dropdown-wrap {
+        position: static;
+    }
+
+    .dropdown {
+        position: absolute;
+        left: 50% !important;
+        bottom: 50% !important;
+        padding: 8px;
+        width: 520px !important;
+        border-radius: 8px;
+        transition: all .32s cubic-bezier(0.3, 0.9, 0.4, 1);
+        transform: translateY(calc(50% + 24px))  translateX(-50%) scale(90%);
+        background-color: #1A1A1A;
+        opacity: 0;
+    }
+
+    .dropdown.open {
+        opacity: 1;
+        transform: translateY(50%) translateX(-50%);
+    }
+
+    .background-blur.mobile {
+        background-color: hsl(0, 0%, 6%, .6);
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    }
+
+    .background-blur.mobile.fade-out {
+        opacity: 0;
+    }
+
+    /* =========================================
+    DROPDOWN SEARCH
+    ========================================= */
+
+    .dropdown-search-wrap {
+        margin: -8px -8px 8px -8px ;
+        padding: 14px;
+        stroke-width: 1.6;
+    }
+
+    .dropdown-search-wrap svg {
+        margin-right: 10px;
+        height: 18px;
+        width: auto;
+    }
+
+    .dropdown-search-icon-wrap {
+        width: 26px;
+    }
+
+    .dropdown-search-wrap input {
+        font-size: 14px;
+    }
+
+    /* =========================================
+        DROPDOWN TAB
+    ========================================= */
+
+    .dropdown-tab {
+        height: 42px;
+        padding: 12px;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    /* =========================================
+    DROPDOWN LAST BLOCK
+    ========================================= */
+
+    .dropdown-bottom-block {
+        margin: 8px -8px -8px -8px ;
+        padding: 8px;
+    }
+
+    /* =========================================
+    ORGANISATION DROPDOWN 
+    ========================================= */
+
+    .dropdown-tab.org .organisation-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .dropdown-tab.org .check {
+        height: 10px;
+        width: auto;
+    }
+
+
+    /* =========================================
+    ORGANISATION TOGGLE
+    ========================================= */
+
+    .menu .dropdown-wrap.organisation {
+        display: none;
+    }
+
+    .organisation-toggle {
+        display: flex !important;
+        border-bottom: none;
+        padding: 0px;
+        align-items: center;
+        margin: 0;
+    }
+
+    .organisation-icon {
+        width: 26px;
+    }
+
+    .organisation-toggle .chevron {
+        height: 10px;
+    }
+
+    
 }
 
+@media (max-width: 1023px) {
+    .menu .dropdown-wrap.organisation {
+        display: none;
+    }
 
+    .organisation-toggle {
+        display: flex !important;
+        border-bottom: none;
+        padding: 0px;
+        align-items: center;
+        margin: 0;
+    }
+
+    /* =========================================
+    DROPDOWN
+    ========================================= */
+
+    .dropdown-wrap {
+        position: static;
+    }
+
+    .dropdown {
+        position: absolute;
+        left: 50% !important;
+        bottom: 50% !important;
+        padding: 8px;
+        width: 520px !important;
+        border-radius: 8px;
+        transition: all .32s cubic-bezier(0.3, 0.9, 0.4, 1);
+        transform: translateY(calc(50% + 24px))  translateX(-50%) scale(90%);
+        background-color: #1A1A1A;
+        opacity: 0;
+    }
+
+    .dropdown.open {
+        opacity: 1;
+        transform: translateY(50%) translateX(-50%);
+    }
+
+    .background-blur.mobile {
+        background-color: hsl(0, 0%, 6%, .6);
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    }
+
+    .background-blur.mobile.fade-out {
+        opacity: 0;
+    }
+
+    /* =========================================
+    DROPDOWN SEARCH
+    ========================================= */
+
+    .dropdown-search-wrap {
+        margin: -8px -8px 8px -8px ;
+        padding: 14px;
+        stroke-width: 1.6;
+    }
+
+    .dropdown-search-wrap svg {
+        margin-right: 10px;
+        height: 18px;
+        width: auto;
+    }
+
+    .dropdown-search-icon-wrap {
+        width: 26px;
+    }
+
+    .dropdown-search-wrap input {
+        font-size: 14px;
+    }
+
+    /* =========================================
+        DROPDOWN TAB
+    ========================================= */
+
+    .dropdown-tab {
+        height: 42px;
+        padding: 12px;
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    /* =========================================
+    DROPDOWN LAST BLOCK
+    ========================================= */
+
+    .dropdown-bottom-block {
+        margin: 8px -8px -8px -8px ;
+        padding: 8px;
+    }
+
+    .dropdown-tab.create-new svg {
+        height: 18px;
+        width: auto;
+    }
+
+    /* =========================================
+    ORGANISATION DROPDOWN 
+    ========================================= */
+
+    .dropdown-tab.org .organisation-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .dropdown-tab.org .check {
+        height: 10px;
+        width: auto;
+    }
+
+
+    /* =========================================
+    ORGANISATION TOGGLE
+    ========================================= */
+
+    .menu .dropdown-wrap.organisation {
+        display: none;
+    }
+
+    .organisation-toggle {
+        display: flex !important;
+        border-bottom: none;
+        padding: 0px;
+        align-items: center;
+        margin: 0;
+    }
+
+    .organisation-icon {
+        width: 26px;
+    }
+
+    .organisation-toggle .chevron {
+        height: 10px;
+    }
+
+    
+}
+
+@media (max-width: 767px) {
+
+    /* =========================================
+        DROPDOWN
+    ========================================= */
+
+    .dropdown {
+        width: 94% !important; 
+    }
+
+    /* =========================================
+    DROPDOWN SEARCH
+    ========================================= */
+
+    .dropdown-search-wrap {
+        margin: -8px -8px 8px -8px ;
+        padding: 12px;
+        stroke-width: 1.5;
+    }
+
+    .dropdown-search-wrap svg {
+        margin-right: 8px;
+        height: 16px;
+        width: auto;
+    }
+
+    .dropdown-search-icon-wrap {
+        width: 24px;
+    }
+
+    .dropdown-search-wrap input {
+        font-size: 13px;
+    }
+
+    /* =========================================
+        DROPDOWN TAB
+    ========================================= */
+
+    .dropdown-tab {
+        height: 34px;
+        padding: 8px;
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    /* =========================================
+    DROPDOWN LAST BLOCK
+    ========================================= */
+
+    .dropdown-bottom-block {
+        margin: 8px -8px -8px -8px ;
+        padding: 8px;
+    }
+
+    .dropdown-tab.create-new svg {
+        height: 16px;
+        width: auto;
+    }
+
+    /* =========================================
+    ORGANISATION DROPDOWN 
+    ========================================= */
+
+    .dropdown-tab.org .organisation-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .dropdown-tab.org .check {
+        height: 9px;
+    }
+
+
+}
 

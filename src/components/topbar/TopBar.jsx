@@ -5,16 +5,22 @@ import Experimental from './dropdowns/Experimental'
 import Feedback from './dropdowns/Feedback'
 import OrgDropdownToggle from './dropdowns/OrgDropdownToggle'
 import SearchBar from './searchbar/SearchBar'
+import { useLocation } from 'react-router-dom'
 
 export default function TopBar({ style = ""}) {
+    const { pathname } = useLocation()
+
+    const isOrg = pathname.startsWith('/org')
+
     return (
         <div className={`topbar ${style} f-row g18`}>
-            <img src={Logo} className='logo trans'/>
-            {/*TODO: Add Logo Animation, Change Logo TO SVG Icon */}
+            <div className='f-row g18'>
+                <img src={Logo} className='logo trans'/>
+                {isOrg && <OrgDropdownToggle />}
+            </div>
             <Feedback />
             <Experimental />
             <div className="seperator"></div>
-            <OrgDropdownToggle />
             <SearchBar />
             <ButtonMenu />
             <Account />

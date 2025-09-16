@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useSupabaseClient, useSessionContext } from "@supabase/auth-helpers-react"
-import { Check, Chevron, Plus } from "../../../assets/Icons"
+import { Check, Chevron, Plus, SearchGlass } from "../../../assets/Icons"
 import { Skeleton } from "../../skeleton/Skeleton"
 
 export default function Organisation() {
@@ -14,9 +14,11 @@ export default function Organisation() {
   const [loading, setLoading] = useState(true)
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [dropdownAnimation, setDropdownAnimation] = useState(true)
+
+  const [ searchFocus, setSearchFocus] = useState(false)
+
   const wrapRef = useRef(null)
 
-  const [ chama, setChama ] = useState(true)
 
   useEffect(() => {
     if (!session?.user) return
@@ -114,6 +116,17 @@ export default function Organisation() {
                 dropdownAnimation ? "" : "open"
               } organisation`}
             >
+                <div className={`dropdown-search-wrap f-row ${searchFocus ? 'focus' : ''}`}>
+                    <div className="dropdown-search-icon-wrap cen">
+                        <SearchGlass />
+                    </div>
+                    <input
+                        type="text"
+                        placeholder="Search for organisation"
+                        onFocus={() => searchFocus(true)}
+                        onBlur={() => setSearchFocus(false)}
+                    />
+                </div>
               {organisations.map((org) => (
                 <button
                   key={org.id}

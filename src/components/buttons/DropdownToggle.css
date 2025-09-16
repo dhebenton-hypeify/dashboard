@@ -20,3 +20,19 @@
     stroke: #4D4D4D;
     background-color: hsl(0, 0%, 100%, .04);
 }
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    .dropdown-toggle {
+        height: 18px;
+        width: 14px;
+        border-radius: 4px;
+    }
+
+    .dropdown-toggle svg {
+        height: 7px;
+    }
+}
