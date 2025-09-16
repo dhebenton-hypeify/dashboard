@@ -32,28 +32,49 @@ export default function App() {
   useEffect(() => {
     if (!session) return
 
-    const fetchOrgs = async () => {
-      const { data, error } = await supabase
-        .schema("app")
-        .from("organisation_members")
-        .select("org_id")
-        .eq("user_id", session.user.id)
+    const fetchOrgsAndProfile = async () => {
+      try {
+        // fetch all org memberships for this user
+        const { data: memberships, error: membershipsError } = await supabase
+          .schema("app")
+          .from("organisation_members")
+          .select("org_id")
+          .eq("user_id", session.user.id)
 
-      if (error) {
-        console.error("Error fetching organisations:", error)
-        setOrgRedirect("/create-organisation")
-        return
-      }
+        if (membershipsError) throw membershipsError
 
-      if (!data || data.length === 0) {
+        // fetch profile to check last_org_id
+        const { data: profile, error: profileError } = await supabase
+          .schema("app")
+          .from("profiles")
+          .select("last_org_id")
+          .eq("id", session.user.id)
+          .single()
+
+        if (profileError) throw profileError
+
+        if (!memberships || memberships.length === 0) {
+          // no organisations at all
+          setOrgRedirect("/create-organisation")
+          return
+        }
+
+        // try to match last_org_id to one of the memberships
+        const matched = memberships.find(m => m.org_id === profile?.last_org_id)
+
+        if (matched) {
+          setOrgRedirect(`/org/${matched.org_id}/sites`)
+        } else {
+          // fallback: just pick the first membership
+          setOrgRedirect(`/org/${memberships[0].org_id}/sites`)
+        }
+      } catch (err) {
+        console.error("Error fetching organisations/profile:", err)
         setOrgRedirect("/create-organisation")
-      } else {
-        const lastOrg = data[data.length - 1] // simple fallback: last org in list
-        setOrgRedirect(`/org/${lastOrg.org_id}/sites`)
       }
     }
 
-    fetchOrgs()
+    fetchOrgsAndProfile()
   }, [session, supabase])
 
   if (isLoading) {
