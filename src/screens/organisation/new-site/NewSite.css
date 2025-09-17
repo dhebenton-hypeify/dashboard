@@ -277,23 +277,23 @@
     ========================================= */
 
     .new-site-source-wrap {
-        padding: 12px 14px;
-        margin-top: -16px;
+        padding: 12px 12px;
+        margin-top: -14px;
         border-radius: 12px;
-        font-size: 14px;
-        row-gap: 12px;
+        font-size: 13px;
+        row-gap: 10px;
     }
 
     .new-site-source-wrap p {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .new-site-source-wrap .git {
-        width: 16px;
+        width: 15px;
     }
 
     .new-site-source-wrap .branch {
-        height: 15px;
+        height: 14px;
         width: auto;
     }
 
