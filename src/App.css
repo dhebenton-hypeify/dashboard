@@ -245,7 +245,7 @@ h4 {
 
     .menu-scroll {
         position: sticky;
-        height: auto;
+        height: auto !important;
         padding: 36px 4% 36px 4%;
         width: auto;
         margin: 0;
@@ -258,7 +258,7 @@ h4 {
         width: auto;
         padding: 14px 4%;
         margin: 0;
-        height: auto;
+        height: auto !important;
         backdrop-filter: blur(5px);
         transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
     }
