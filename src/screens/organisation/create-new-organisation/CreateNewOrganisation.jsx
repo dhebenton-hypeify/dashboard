@@ -17,6 +17,8 @@ export default function CreateNewOrganisation() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const [nameInputFocus, setNameInputFocus ] = useState(false)
+
   const handleCreate = async () => {
     if (!orgName.trim()) return
     setLoading(true)
@@ -98,15 +100,19 @@ export default function CreateNewOrganisation() {
           <label className="label" htmlFor="organisation-name">
             Name
           </label>
-          <input
-            id="organisation-name"
-            type="text"
-            className="input"
-            placeholder="Organisation Name"
-            value={orgName}
-            onChange={(e) => setOrgName(e.target.value)}
-            disabled={loading}
-          />
+          <div className={`f-col input trans ${nameInputFocus ? 'focus' : ''}`}>
+            <input
+              id="organisation-name"
+              type="text"
+              className="no-scale-mob"
+              placeholder="Organisation Name"
+              onFocus={() => setNameInputFocus(true)}
+              onBlur={() => setNameInputFocus(false)}
+              value={orgName}
+              onChange={(e) => setOrgName(e.target.value)}
+              disabled={loading}
+            />
+          </div>
         </div>
 
         <div className="create-block">
