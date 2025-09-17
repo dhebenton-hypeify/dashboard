@@ -25,6 +25,7 @@
     aspect-ratio: 1;
     border: 1px solid hsl(0, 0%, 100%, .1);
     border-radius: 50px;
+    overflow: hidden;
 }
 
 .git-repo-card:hover .git-repo-thumbnail {
@@ -35,6 +36,12 @@
     height: 13px;
     width: auto;
 }
+
+.git-repo-thumbnail img {
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+}
 .git-repo-card span {
     margin-left: auto;
     font-size: 13px;
@@ -44,6 +51,17 @@
 
 .git-repo-card:hover span {
     color: #A9C1E5;
+}
+
+.git-repos-wrap-scroll {
+  height: 230px;
+  scrollbar-width: none;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch; 
+}
+
+.git-repo-card {
+  flex-shrink: 0; /* prevent items collapsing */
 }
 
 /* =========================================

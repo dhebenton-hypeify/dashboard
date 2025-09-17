@@ -382,7 +382,7 @@
     z-index: 100000;
     backdrop-filter: blur(7px);
     align-items: end;
-    opacity: 0;
+    opacity: 0 ;
     pointer-events: none;
     transition: opacity .2s cubic-bezier(0.3, 0.9, 0.4, 1);
   }

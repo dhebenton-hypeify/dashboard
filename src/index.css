@@ -122,6 +122,10 @@ button {
     gap: 40px;
   }
 
+  .g36 {
+    gap: 36px;
+  }
+
   .g32 {
     gap: 32px;
   }
@@ -186,6 +190,10 @@ button {
 
       .g40 {
         gap: 36px;
+      }
+
+      .g36 {
+        gap: 32px;
       }
 
       .g32 {

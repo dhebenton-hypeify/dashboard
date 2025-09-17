@@ -95,7 +95,7 @@ export default function App() {
           <Route path="/create-organisation" element={<CreateNewOrganisation />} />
           <Route path="/org/:id/sites" element={<Sites />} />
           <Route path="/new-site" element={<NewSite />} />
-          <Route path="/new-site/complete" element={<UploadComplete />} />
+          <Route path="/org/:orgId/:siteName/upload-complete" element={<UploadComplete />} />
           <Route path="/org/:id/site/settings/domain-settings" element={<DomainSettings />} />
           <Route
             path="/"

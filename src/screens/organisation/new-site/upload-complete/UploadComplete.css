@@ -3,11 +3,12 @@
 ========================================= */
 
 .site-complete  .subheading {
-    margin-top: -28px;
+    margin-top: -20px;
 }
 
 .site-complete .site-card-thumbnail {
   aspect-ratio: 15 / 7.758;
+  opacity: .9;
 }
 
 /* =========================================
@@ -15,18 +16,18 @@
 ========================================= */
 
 .next-step-button {
-  font-size: 15px;
-  font-variation-settings: 'wght' 630;
+  font-size: 14px;
+  font-variation-settings: 'wght' 550;
   color: #595959;
   stroke: #595959;
-  background-color: hsl(0, 0%, 100%, .03);
-  padding: 10px;
+  background-color: hsl(0, 0%, 100%, .02);
+  padding: 8px 12px;
   border-radius: 12px;
   border: 1px solid hsl(0, 0%, 100%, .04);
 }
 
 .next-step-button .icon-wrap {
-  height: 27px;
+  height: 24px;
   aspect-ratio: 1;
   background: linear-gradient(180deg, rgba(255, 255, 255, 5%) 0%, rgba(255, 255, 255, 3%) 100%);
   border: 1px solid hsl(0, 0%, 100%, .05);
@@ -34,7 +35,7 @@
 }
 
 .next-step-button svg {
-  height: 15px;
+  height: 12px;
   width: auto;
 }
 
@@ -43,7 +44,12 @@
   stroke: none;
   fill: #404040;
   height: 10px;
+  margin-right: 4px;
   width: auto;
+}
+
+.next-step-button:hover .arrow {
+  margin-right: 0;
 }
 
 .next-step-button:hover {
@@ -58,4 +64,42 @@
 
 .next-step-button:hover .arrow {
   fill: #4A4A4A;
+}
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+  /* =========================================
+    STRUCUTRE
+  ========================================= */
+
+  .site-complete  .subheading {
+      margin-top: -24px;
+  }
+
+  /* =========================================
+    NEXT STEP COMPLETE
+  ========================================= */
+
+  .next-step-button {
+    font-size: 13px;
+    padding: 8px 10px;
+    border-radius: 12px;
+  }
+
+  .next-step-button .icon-wrap {
+    height: 23px;
+  }
+
+  .next-step-button svg {
+    height: 12px;
+    width: auto;
+  }
+
+  .next-step-button .arrow {
+    height: 9px;
+  }
+
 }

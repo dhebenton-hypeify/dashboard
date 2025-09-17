@@ -6,10 +6,10 @@
 .skeleton {
   background: linear-gradient(
     90deg,
-    #1e1e1e 0%,
-    #2a2a2a 20%,
-    #1e1e1e 40%,
-    #1e1e1e 100%
+    hsl(0, 0%, 100%, .04) 0%,
+    hsl(0, 0%, 100%, .07) 20%,
+    hsl(0, 0%, 100%, .04) 40%,
+    hsl(0, 0%, 100%, .04) 100%
   );
   background-size: 200% 100%;
   border-radius: 6px;
@@ -22,6 +22,19 @@
   }
   100% {
     background-position: -200% 0;
+  }
+}
+
+.post-skel-fade-in {
+  animation: post-skel-fade-in .2s ease;
+}
+
+@keyframes post-skel-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -42,9 +55,26 @@
     border-radius: 3px;
 }
 
+.skeleton.form-org-dropdown-skel {
+    animation: skeleton-loading 2s linear infinite, menu-load-in .19s ease;
+    height: 150%;
+    width: 50%;
+    margin-right: auto;
+}
+
 /* =========================================
   MENU LOAD IN
 ========================================= */
+
+.new-site-load-in-up {
+    animation: menu-load-in .3s ease forwards;
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+.new-site-load-in-up.del {
+    animation-delay: .08s;
+}
 
 .menu-load-in {
   animation: menu-load-in .19s ease forwards;
@@ -175,3 +205,9 @@
 
 
 }
+
+
+/* =========================================
+  CREATE ORG
+========================================= */
+

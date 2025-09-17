@@ -3,11 +3,11 @@
 ========================================= */
 
 .go-button {
-    border-radius: 5px;
     color: #404040;
     fill: #404040;
     gap: 9px;
     font-size: 13px;
+    align-items: center;
     font-variation-settings: 'wght' 550;
 }
 
@@ -15,4 +15,19 @@
     color: #4D4D4D;
     fill: #4D4D4D;
     gap: 16px;
+}
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+  .go-button {
+    font-size: 12px;
+  }
+
+  .go-button svg {
+    height: 9px;
+    width: auto;
+  }
 }

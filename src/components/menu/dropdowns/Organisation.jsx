@@ -101,7 +101,7 @@ export default function Organisation() {
             <img
               src={currentOrg?.icon_url}
               alt="Org icon"
-              className="organisation-icon menu-org-load-in"
+              className="organisation-icon trans menu-org-load-in"
             />
             <p className="org-label menu-org-load-in trans">
               {currentOrg?.name || "No Organisation"}

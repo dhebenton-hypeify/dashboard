@@ -4,7 +4,7 @@ import './GoButton.css'
 export default function GoButton({ style = "", label }) {
     return (
         <button className="go-button cen">
-            {label}
+            <span>{label}</span>
             <ArrowRight />
         </button>
     )
