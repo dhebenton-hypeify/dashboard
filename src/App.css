@@ -266,4 +266,8 @@ h4 {
     .menu-scroll.stuck h1 {
         font-size: 16px;
     }
+
+    .content {
+        padding-bottom: 40px;
+    }
 }
