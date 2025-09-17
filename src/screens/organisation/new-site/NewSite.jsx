@@ -14,7 +14,7 @@ import { Advanced, EnviormentalVariables } from './accordations/Accordations'
 
 export default function NewSite() {
     const [ pickedRepo, setPickedRepo ] = useState(false)
-    const [ gitSignedIn, setGitSignedIn ] = useState(false)
+    const [ gitSignedIn, setGitSignedIn ] = useState(true)
 
     const [nameInputFocus, setNameInputFocus ] = useState(false)
 

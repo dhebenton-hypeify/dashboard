@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Sites() {
     const [ gridView, setGridView ] = useState(true)
-    const [ sites, setSites ] = useState(true)
+    const [ sites, setSites ] = useState(false)
     const [ usageColapse, setUsageColapse ] = useState(true)
 
     const [isStuck, setIsStuck] = useState(false);
