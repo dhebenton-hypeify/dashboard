@@ -13,8 +13,8 @@ import { useNavigate } from 'react-router-dom';
 import { Advanced, EnviormentalVariables } from './accordations/Accordations'
 
 export default function NewSite() {
-    const [ pickedRepo, setPickedRepo ] = useState(true)
-    const [ gitSignedIn, setGitSignedIn ] = useState(true)
+    const [ pickedRepo, setPickedRepo ] = useState(false)
+    const [ gitSignedIn, setGitSignedIn ] = useState(false)
 
     const [nameInputFocus, setNameInputFocus ] = useState(false)
 
