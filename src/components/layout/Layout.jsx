@@ -42,7 +42,7 @@ export default function Layout() {
     }
     }, [])
 
-    const [ showMobileNavigation, setShowMobileNavigation ] = useState(true)
+    const [ showMobileNavigation, setShowMobileNavigation ] = useState(false)
     
 
     return (
