@@ -29,6 +29,8 @@ export default function App() {
   const { session, isLoading } = useSessionContext()
   const [orgRedirect, setOrgRedirect] = useState(null)
 
+
+
   useEffect(() => {
     if (!session) return
 

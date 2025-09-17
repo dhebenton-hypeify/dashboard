@@ -5,7 +5,7 @@ import { Beaker } from "../../../assets/Icons";
 export default function Experimental() {
     return (
         <ButtonSec
-            style="icon not-finished"
+            style="icon not-finished top-bar-load-in-left delay top-bar-load-in-right-mob"
         >
             <Beaker 
                 style="trans"

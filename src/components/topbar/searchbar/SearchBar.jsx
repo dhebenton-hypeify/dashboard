@@ -3,7 +3,7 @@ import './Searchbar.css'
 
 export default function SearchBar() {
     return (
-        <div className="searchbar trans not-finished f-row">
+        <div className="searchbar trans not-finished delay f-row top-bar-load-in-right">
             <SearchGlass 
                 style="icon trans"
             />

@@ -86,7 +86,7 @@ export default function CreateNewOrganisation() {
   }
 
   return (
-    <div className="cen mob-pad new-org wrap">
+    <div className="cen mob-pad new-org wrap menu-load-in">
       <CardCreate style="f-col g52 new create-organisation">
         <h3>New Organisation</h3>
         <p className="subheading">

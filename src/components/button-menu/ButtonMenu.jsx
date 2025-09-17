@@ -3,7 +3,7 @@ import './ButtonMenu.css'
 
 export default function ButtonMenu() {
     return (
-        <div className="button-menu-wrap f-row">
+        <div className="button-menu-wrap top-bar-load-in-right-mob anim-delay  f-row top-bar-load-in-right">
             <button className="button-menu not-finished cen">
                 <Bell style="trans"/>
             </button>

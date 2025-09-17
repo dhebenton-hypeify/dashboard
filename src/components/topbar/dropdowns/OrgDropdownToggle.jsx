@@ -3,6 +3,7 @@ import { useSupabaseClient, useSessionContext } from "@supabase/auth-helpers-rea
 import { useNavigate } from "react-router-dom"
 import { useEffect, useRef, useState } from "react"
 import { Chevron, SearchGlass, Check, Plus } from "../../../assets/Icons";
+import { Skeleton } from "../../skeleton/Skeleton";
 
 export default function OrgDropdownToggle ({}) {
     const supabase = useSupabaseClient()
@@ -84,13 +85,16 @@ export default function OrgDropdownToggle ({}) {
     }, [dropdownOpen])
 
     return (
-        <div className={`dropdown-wrap ${dropdownAnimation ? '' : ''}`}>
-            <button className="organisation-toggle g8 org trans" onClick={toggleDropdown}>
-                <img
-                  src={currentOrg?.icon_url}
-                  alt="Org icon"
-                  className="organisation-icon menu-org-load-in"
-                />
+        <div className={`dropdown-wrap  ${dropdownAnimation ? '' : ''}`}>
+            <button className="organisation-toggle g8 org trans top-bar-load-in-left-mob anim-delay" onClick={toggleDropdown}>
+                { !loading ?
+                    <img
+                        src={currentOrg?.icon_url}
+                        alt="Org icon"
+                        className="organisation-icon menu-org-load-in"
+                    /> : 
+                    <Skeleton style="top-bar-skeleton" />
+                }
                 <Chevron />
             </button>
             {dropdownOpen && (

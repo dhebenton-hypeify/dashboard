@@ -36,6 +36,12 @@
     animation: skeleton-loading 2s linear infinite, menu-load-in .19s ease;
 }
 
+.top-bar-skeleton.skeleton {
+    height: 26px;
+    width: 26px;
+    border-radius: 3px;
+}
+
 /* =========================================
   MENU LOAD IN
 ========================================= */
@@ -80,4 +86,92 @@
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+
+/* =========================================
+  TOPBAR
+========================================= */
+
+.top-bar-load-in-left {
+    animation: topbar-load-in-left .19s forwards;
+    opacity: 0;
+    transform: translateX(-12px);
+}
+
+.top-bar-load-in-right {
+    animation: topbar-load-in-right .19s forwards;
+    transform: translateX(12px);
+    opacity: 0;
+}
+
+.top-bar-load-in-left:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.top-bar-load-in-left:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.top-bar-load-in-right.searchbar {
+    animation-delay: 0.12s;
+}
+
+.top-bar-load-in-right.menu-button-wrap {
+    animation-delay: 0.06s;
+}
+
+
+@keyframes topbar-load-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes topbar-load-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+@media (max-width: 1023px) {
+
+    .top-bar-load-in-left-mob {
+        animation: topbar-load-in-left .19s forwards;
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    .top-bar-load-in-right-mob {
+        animation: topbar-load-in-right .19s forwards;
+        transform: translateX(12px);
+        opacity: 0;
+    }
+
+    .anim-delay {
+        animation-delay: .06s;
+    }
+
+    .anim-delay-two {
+        animation-delay: .12s;
+    }
+
+    .anim-delay-three {
+        animation-delay: .18s;
+    }
+
+
 }

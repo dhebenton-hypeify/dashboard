@@ -6,9 +6,11 @@ import { ButtonTrans } from "../buttons/TransButton"
 import MenuControls from "./menu-controls-dropdown/MenuControls"
 import { useState } from "react"
 
-export const MenuOrg = () => {
+export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
     const [ navigationState, setNavigationState ] = useState('expanded')
     const [ navigationHover, setNavigationHover ] = useState(false)
+
+    const [ mobileShow, setMobileShow ] = useState(true) 
 
     function handleNavigationHover() {
         setNavigationHover(true)
@@ -16,7 +18,7 @@ export const MenuOrg = () => {
     }
 
     return (
-        <div className={`menu-wrap ${navigationState}`}>
+        <div className={`menu-wrap ${navigationState} ${showMobileNavigation ? 'show' : "hide"}`} onClick={() => setShowMobileNavigation(false)}>
             <div onMouseEnter={() => handleNavigationHover()} className={`menu org dropdown-wrap ${navigationState} ${navigationHover ? 'hover' : ''} f-col g8`}>
                 <Organisation />
                 <OrgTabs />
