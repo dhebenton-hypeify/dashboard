@@ -29,14 +29,11 @@ export default function App() {
   const { session, isLoading } = useSessionContext()
   const [orgRedirect, setOrgRedirect] = useState(null)
 
-
-
   useEffect(() => {
     if (!session) return
 
     const fetchOrgsAndProfile = async () => {
       try {
-        // fetch all org memberships for this user
         const { data: memberships, error: membershipsError } = await supabase
           .schema("app")
           .from("organisation_members")
@@ -45,7 +42,6 @@ export default function App() {
 
         if (membershipsError) throw membershipsError
 
-        // fetch profile to check last_org_id
         const { data: profile, error: profileError } = await supabase
           .schema("app")
           .from("profiles")
@@ -56,18 +52,15 @@ export default function App() {
         if (profileError) throw profileError
 
         if (!memberships || memberships.length === 0) {
-          // no organisations at all
           setOrgRedirect("/create-organisation")
           return
         }
 
-        // try to match last_org_id to one of the memberships
         const matched = memberships.find(m => m.org_id === profile?.last_org_id)
 
         if (matched) {
           setOrgRedirect(`/org/${matched.org_id}/sites`)
         } else {
-          // fallback: just pick the first membership
           setOrgRedirect(`/org/${memberships[0].org_id}/sites`)
         }
       } catch (err) {
@@ -95,7 +88,13 @@ export default function App() {
           <Route path="/create-organisation" element={<CreateNewOrganisation />} />
           <Route path="/org/:id/sites" element={<Sites />} />
           <Route path="/new-site" element={<NewSite />} />
-          <Route path="/org/:orgId/:siteName/upload-complete" element={<UploadComplete />} />
+
+          {/* Adjusted path to include siteId and siteName */}
+          <Route
+            path="/org/:orgId/site/:siteId/:siteName/upload-complete"
+            element={<UploadComplete />}
+          />
+
           <Route path="/org/:id/site/settings/domain-settings" element={<DomainSettings />} />
           <Route
             path="/"

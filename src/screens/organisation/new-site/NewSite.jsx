@@ -190,7 +190,7 @@ export default function NewSite() {
       if (!updated) throw new Error("Supabase update returned null on publish")
 
       console.log("✅ Production ready (thumbnail handled by backend):", updated)
-      navigate(`/org/${updated.org_id}/${updated.name}/upload-complete`)
+      navigate(`/org/${updated.org_id}/site/${updated.id}/${updated.name}/upload-complete`)
     } catch (err) {
       console.error("❌ handleDeploy error:", err)
       if (err?.stack) console.error(err.stack)
