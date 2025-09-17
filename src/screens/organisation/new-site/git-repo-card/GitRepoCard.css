@@ -45,3 +45,34 @@
 .git-repo-card:hover span {
     color: #A9C1E5;
 }
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    /* =========================================
+    GIT REPO CARD
+    ========================================= */
+
+    .git-repo-card {
+        padding: 9px;
+        font-size: 13px;
+        border-radius: 5px;
+    }
+
+    .git-repo-thumbnail {
+        width: 19px;
+    }
+
+    .git-repo-thumbnail svg{
+        height: 11px;
+        width: auto;
+    }
+
+    .git-repo-card span {
+        font-size: 12px;
+    }
+
+
+}

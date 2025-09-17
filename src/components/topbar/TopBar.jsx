@@ -19,8 +19,16 @@ export default function TopBar({ style = "", setShowMobileNavigation, showMobile
   const { session } = useSessionContext()
 
   const [lastOrgId, setLastOrgId] = useState(null)
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024)
 
   const isOrg = pathname.startsWith("/org")
+
+  // track resize
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1024)
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   useEffect(() => {
     if (!session?.user) return
@@ -59,8 +67,11 @@ export default function TopBar({ style = "", setShowMobileNavigation, showMobile
         {isOrg && <OrgDropdownToggle />}
       </div>
       <Feedback />
-      {isOrg ? (
-        <ButtonSec style="icon top-bar-load-in-left delay top-bar-load-in-right-mob" click={() => setShowMobileNavigation(prev => !prev)}>
+      {isOrg && isMobile ? (
+        <ButtonSec
+          style="icon top-bar-load-in-left delay top-bar-load-in-right-mob"
+          click={() => setShowMobileNavigation(prev => !prev)}
+        >
           <Hamburger />
         </ButtonSec>
       ) : (

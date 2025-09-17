@@ -202,3 +202,138 @@
     font-variation-settings: 'wght' 550;
 }
 
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    /* =========================================
+    NEW SITE REPO STRUCTURE
+    ========================================= */
+
+    .new-site-repo {
+        column-gap: 14px;
+    }
+
+
+    .new-site-repo .subheading {
+        margin: 8px 0 28px 0;
+    }
+
+    /* =========================================
+    NEW SITE REPO STRUCTURE
+    ========================================= */
+
+
+    .select-git-prov .subheading-two {
+        margin-bottom: 14px;
+    }
+
+    .select-git-prov .short-link {
+        margin-top: 14px;
+    }
+
+
+    /* =========================================
+    BUTTON
+    ========================================= */
+
+    .select-git-provider {
+        height: 35px;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+    .select-git-provider img,
+    .select-git-provider svg {
+        width: 16px;
+        height: auto;
+    }
+
+    /* =========================================
+    GIT SELECTED STRUCTURE
+    ========================================= */
+
+    .card.new-site {
+        column-gap: 18px;
+        row-gap: 36px;
+    }
+
+    .card.new-site .subheading {
+        margin-top: 0px;
+        margin-bottom: -8px;
+    }
+
+    .card.site-complete .button.blue,
+    .card.new-site .button.blue {
+        height: 36px;
+        font-size: 13px;
+    }
+
+    /* =========================================
+    GIT SELECTED IMPORT FROM
+    ========================================= */
+
+    .new-site-source-wrap {
+        padding: 12px 14px;
+        margin-top: -16px;
+        border-radius: 12px;
+        font-size: 14px;
+        row-gap: 12px;
+    }
+
+    .new-site-source-wrap p {
+        font-size: 12px;
+    }
+
+    .new-site-source-wrap .git {
+        width: 16px;
+    }
+
+    .new-site-source-wrap .branch {
+        height: 15px;
+        width: auto;
+    }
+
+    .new-site-source-wrap span {
+        color: #404040;
+    }
+
+    .card.import-git-prov {
+        padding: 16px;
+    }
+
+
+}
+
+@media (max-width: 1023px) {
+    
+    .new-site-repo {
+        display: block;
+        flex-direction: column;
+    }
+
+    .card.unavailable {
+        margin-top: 32px;
+        height: 300px;
+    }
+
+    .card.new-site {
+        gap: 28px;
+    }
+
+    .card.new-site .subheading {
+        margin-bottom: -12px;
+    }
+
+    .card.new-site .f-col {
+        grid-column: 1 / 3;
+        gap: 14px !important;
+    }
+
+    .form-accordation.bottom {
+        margin-top: -16px !important;
+    }
+}

@@ -21,10 +21,10 @@ export default function Layout() {
         const lenis = new Lenis({
             wrapper: contentRef.current,
             content: contentRef.current.firstElementChild,
-            duration: 1.2,
+            duration: 1,
             easing: (t) => 1 - Math.pow(2, -10 * t), 
             smoothWheel: true,
-            smoothTouch: true,
+            smoothTouch: false,
             
     })
 

@@ -245,10 +245,12 @@ h4 {
 
     .menu-scroll {
         position: sticky;
-        height: auto !important;
-        padding: 0 4% 0 4%;
+        height: auto;
+        padding: 36px 4% 36px 4%;
         width: auto;
         margin: 0;
+        -webkit-transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
     }
 
 
@@ -256,9 +258,9 @@ h4 {
         border-bottom: 1px solid #212121;
         background-color: hsl(0, 0%, 9%, .8);
         width: auto;
-        padding: 0 4%;
+        padding: 14px 4%;
         margin: 0;
-        height: auto !important;
+        height: auto;
         backdrop-filter: blur(5px);
         transition: all .6s cubic-bezier(0.3, 0.9, 0.4, 1);
     }
@@ -269,5 +271,16 @@ h4 {
 
     .content {
         padding-bottom: 40px;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        line-height: 1.2;
     }
 }

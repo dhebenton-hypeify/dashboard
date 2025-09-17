@@ -13,14 +13,16 @@ import { useNavigate } from 'react-router-dom';
 import { Advanced, EnviormentalVariables } from './accordations/Accordations'
 
 export default function NewSite() {
-    const [ pickedRepo, setPickedRepo ] = useState(false)
+    const [ pickedRepo, setPickedRepo ] = useState(true)
     const [ gitSignedIn, setGitSignedIn ] = useState(true)
+
+    const [nameInputFocus, setNameInputFocus ] = useState(false)
 
     const navigate = useNavigate();
 
     return (
         <div className="content-wrap top-pad upload-new-site cen ">
-            <div className={`wrap-small  ${pickedRepo ? 'f-col cen g52' : 'new-site-repo'}`}>
+            <div className={`wrap-small mob-pad ${pickedRepo ? 'f-col cen g52' : 'new-site-repo'}`}>
                 {pickedRepo ?
                     (
                         <>
@@ -40,7 +42,16 @@ export default function NewSite() {
                                 </div>
                                 <div className="f-col g14">
                                     <p className="label">Site Name</p>
-                                    <input type="text" className='input' placeholder='eg. hypeify'/>
+                                    <div className={`input trans ${nameInputFocus ? 'focus' : ''}`}>
+                                        <input
+                                            id="site-name"
+                                            type="text"
+                                            className="no-scale-mob"
+                                            placeholder="eg. hypeify"
+                                            onFocus={() => setNameInputFocus(true)}
+                                            onBlur={() => setNameInputFocus(false)}
+                                        />
+                                    </div>
                                 </div>
                                 <Advanced />
                                 <EnviormentalVariables />
