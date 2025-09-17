@@ -24,7 +24,7 @@ export default function Layout() {
             duration: 1.2,
             easing: (t) => 1 - Math.pow(2, -10 * t), 
             smoothWheel: true,
-            smoothTouch: false,
+            smoothTouch: true,
             
     })
 
