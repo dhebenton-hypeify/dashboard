@@ -6,13 +6,16 @@ import { ArrowRight, Chain } from "../../../../assets/Icons"
 import { useNavigate, useParams } from "react-router-dom"
 import { useSupabaseClient } from "@supabase/auth-helpers-react"
 import confetti from "canvas-confetti"
+import { Skeleton } from "../../../../components/skeleton/Skeleton"
 
 export default function UploadComplete() {
   const navigate = useNavigate()
   const { siteId } = useParams()
   const supabase = useSupabaseClient()
+
   const [thumbnail, setThumbnail] = useState(null)
   const [siteUrl, setSiteUrl] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   // Fetch thumbnail + site URL from Supabase
   useEffect(() => {
@@ -20,21 +23,25 @@ export default function UploadComplete() {
     console.log("Fetching site details for siteId:", siteId)
 
     const fetchSite = async () => {
-      const { data, error } = await supabase
-        .schema("app")
-        .from("sites")
-        .select("thumbnail, production_url, staging_url")
-        .eq("id", siteId)
-        .single()
+      try {
+        const { data, error } = await supabase
+          .schema("app")
+          .from("sites")
+          .select("thumbnail, production_url, staging_url")
+          .eq("id", siteId)
+          .single()
 
-      if (error) {
-        console.error("Site fetch error:", error)
-        return
-      }
+        if (error) {
+          console.error("Site fetch error:", error)
+          return
+        }
 
-      if (data) {
-        setThumbnail(data.thumbnail)
-        setSiteUrl(data.production_url || data.staging_url || null)
+        if (data) {
+          setThumbnail(data.thumbnail)
+          setSiteUrl(data.production_url || data.staging_url || null)
+        }
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -59,7 +66,9 @@ export default function UploadComplete() {
           <h2>Congratulations</h2>
           <p className="subheading">Deployment wrapped. Your site’s out there.</p>
 
-          {thumbnail ? (
+          {loading ? (
+            <Skeleton style="site-thumbnail-skeleton-complete" />
+          ) : thumbnail ? (
             <a
               href={siteUrl || "#"}
               target="_blank"

@@ -15,9 +15,9 @@ function timeAgo(dateString) {
   return `${days}d ago`
 }
 
-export default function GitRepo({ name, updatedAt, avatarUrl, onClick }) {
+export default function GitRepo({ name, updatedAt, avatarUrl, onClick, style="" }) {
   return (
-    <button className="git-repo-card f-row g10" onClick={onClick}>
+    <button className={`git-repo-card f-row g10 ${style}`} onClick={onClick}>
       <div className="git-repo-thumbnail cen trans">
         {avatarUrl ? (
           <img src={avatarUrl} alt={`${name} owner`} className="repo-avatar" />

@@ -64,7 +64,7 @@ export default function TopBar({ style = "", setShowMobileNavigation, showMobile
           onClick={handleLogoClick}
           alt="Logo"
         />
-        {isOrg && <OrgDropdownToggle />}
+        {isOrg && isMobile && <OrgDropdownToggle />}
       </div>
       <Feedback />
       {isOrg && isMobile ? (

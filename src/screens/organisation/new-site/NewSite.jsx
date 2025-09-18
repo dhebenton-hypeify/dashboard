@@ -1,4 +1,4 @@
-import { GitBranch, GitHub } from "../../../assets/Icons"
+import { GitBranch, GitHub, Spinner } from "../../../assets/Icons"
 import { CardCreate } from "../../../components/cards/Cards"
 import BitBucket from "../../../assets/BitBucket.svg"
 import GitLab from "../../../assets/GitLab.svg"
@@ -12,6 +12,7 @@ import { ButtonMainBlue } from "../../../components/buttons/ButtonMain"
 import { useNavigate } from "react-router-dom"
 import { Advanced, EnviormentalVariables } from "./accordations/Accordations"
 import { useSupabaseClient, useSessionContext } from "@supabase/auth-helpers-react"
+import { Skeleton } from "../../../components/skeleton/Skeleton"
 
 export default function NewSite() {
   const [pickedRepo, setPickedRepo] = useState(null)
@@ -21,6 +22,16 @@ export default function NewSite() {
   const [siteName, setSiteName] = useState("")
   const [selectedOrg, setSelectedOrg] = useState(null)
   const [siteRow, setSiteRow] = useState(null)
+
+  // Loading states
+  const [authLoading, setAuthLoading] = useState(true)
+  const [reposLoading, setReposLoading] = useState(false)
+
+  // Repo import state
+  const [importing, setImporting] = useState(null)
+
+  // Deploy/upload state
+  const [uploading, setUploading] = useState(false)
 
   const navigate = useNavigate()
   const supabase = useSupabaseClient()
@@ -42,11 +53,39 @@ export default function NewSite() {
   // Fetch GitHub repos
   useEffect(() => {
     const fetchRepos = async () => {
-      if (!session) return
-      const token = session?.provider_token
-      if (!token) return
+      if (!session) {
+        setAuthLoading(false)
+        return
+      }
+
+      let token = session?.provider_token
+      console.log("Session provider_token:", token)
 
       try {
+        if (!token) {
+          const { data: profile, error } = await supabase
+            .schema("app")
+            .from("profiles")
+            .select("github_token")
+            .eq("id", session.user.id)
+            .single()
+
+          if (error) {
+            console.error("Error fetching profile github_token:", error)
+          } else if (profile?.github_token) {
+            token = profile.github_token
+            console.log("Using stored github_token from profile")
+          }
+        }
+
+        if (!token) {
+          console.warn("No GitHub token found in session or profile")
+          setAuthLoading(false)
+          return
+        }
+
+        setReposLoading(true)
+
         const res = await fetch("https://api.github.com/user/repos", {
           headers: { Authorization: `token ${token}` },
         })
@@ -54,17 +93,34 @@ export default function NewSite() {
         if (Array.isArray(data)) {
           setRepos(data)
           setGitSignedIn(true)
+
+          if (session?.provider_token) {
+            const { error: updateError } = await supabase
+              .schema("app")
+              .from("profiles")
+              .update({ github_token: session.provider_token })
+              .eq("id", session.user.id)
+
+            if (updateError) {
+              console.error("Error saving github_token to profile:", updateError)
+            } else {
+              console.log("✅ Saved github_token to profile")
+            }
+          }
         } else {
           console.error("Unexpected repos response:", data)
         }
       } catch (err) {
         console.error("Error fetching repos:", err)
+      } finally {
+        setAuthLoading(false)
+        setReposLoading(false)
       }
     }
     fetchRepos()
-  }, [session])
+  }, [session, supabase])
 
-  // Fetch default organisation from profile or fallback
+  // Fetch default organisation
   useEffect(() => {
     const fetchProfile = async () => {
       if (!session) return
@@ -93,24 +149,22 @@ export default function NewSite() {
   // Pick repo + create site + call /prepare
   const handlePickRepo = async (repo) => {
     console.log("---- handlePickRepo START ----")
-    console.log("Session:", session)
-    console.log("SelectedOrg:", selectedOrg)
-    console.log("Picked Repo:", repo)
+    setImporting(repo.id)
 
     if (!session) {
       console.error("❌ No session — user not logged in")
       alert("You must be logged in to continue.")
+      setImporting(null)
       return
     }
     if (!selectedOrg) {
       console.error("❌ No organisation selected")
       alert("Please select an organisation before continuing.")
+      setImporting(null)
       return
     }
 
     try {
-      // 1. Insert site row
-      console.log("➡️ Inserting site row into Supabase…")
       const { data: site, error } = await supabase
         .schema("app")
         .from("sites")
@@ -127,8 +181,6 @@ export default function NewSite() {
       if (!site) throw new Error("No site row returned from insert")
       console.log("✅ Site created in DB:", site)
 
-      // 2. Call backend /prepare
-      console.log("➡️ Calling backend /prepare…")
       const res = await fetch("https://dashboard.hypeify.io/api/prepare", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -146,21 +198,20 @@ export default function NewSite() {
         throw new Error("Prepare failed: " + (prep.error || "unknown error"))
       }
 
-      // 3. Don’t update Supabase staging_url here — backend handles it
-
-      // 4. Save to state
       setPickedRepo(repo)
       setSiteRow(site)
       setSiteName(repo.name)
       console.log("✅ Site created (waiting for backend to update staging_url):", site)
-      console.log("---- handlePickRepo END ----")
     } catch (err) {
       console.error("❌ handlePickRepo error:", err)
       if (err?.stack) console.error(err.stack)
+    } finally {
+      setImporting(null)
+      console.log("---- handlePickRepo END ----")
     }
   }
 
-  // Deploy = call backend /publish (server will capture thumbnail + update DB)
+  // Deploy = call backend /publish
   const handleDeploy = async () => {
     if (!siteRow) {
       console.error("❌ Missing siteRow")
@@ -168,11 +219,13 @@ export default function NewSite() {
       return
     }
 
+    setUploading(true)
+
     try {
       const res = await fetch("https://dashboard.hypeify.io/api/publish", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ siteName: siteRow.name, siteId: siteRow.id }), // include siteId
+        body: JSON.stringify({ siteName: siteRow.name, siteId: siteRow.id }),
       })
       const pub = await res.json()
       if (!pub.success) throw new Error(pub.error || "Publish failed")
@@ -189,26 +242,46 @@ export default function NewSite() {
       if (updateError) throw updateError
       if (!updated) throw new Error("Supabase update returned null on publish")
 
-      console.log("✅ Production ready (thumbnail handled by backend):", updated)
+      console.log("✅ Production ready:", updated)
       navigate(`/org/${updated.org_id}/site/${updated.id}/${updated.name}/upload-complete`)
     } catch (err) {
       console.error("❌ handleDeploy error:", err)
       if (err?.stack) console.error(err.stack)
+    } finally {
+      setUploading(false)
     }
   }
 
   return (
     <div className="content-wrap top-pad upload-new-site cen">
+      {importing &&
+        <div className="importing-popup f-row g14">
+          <Spinner />
+          Importing repository data
+        </div>
+      }
+      {uploading &&
+        <div className="importing-popup f-row g14">
+          <Spinner />
+          Uploading your site
+        </div>
+      }
       <div className={`wrap-small mob-pad ${pickedRepo ? "f-col cen g52" : "new-site-repo"}`}>
         {pickedRepo ? (
           <CardCreate style="new-site new-site-load-in-up create-organisation">
             <h3>New Site</h3>
             <div className="new-site-source-wrap">
               <p>Importing From GitHub</p>
-              <GitHub style="git" />
-              {pickedRepo.full_name}
-              <GitBranch style="branch" />
-              <span>main</span>
+              <div className="f-row f-wrap g16">
+                <div className="f-row">
+                  <GitHub style="git" />
+                  {pickedRepo.full_name}
+                </div>
+                <div className="f-row">
+                  <GitBranch style="branch" />
+                  <span>main</span>
+                </div>
+              </div>
             </div>
             <p className="subheading">Choose where you want to create the project and give it a name</p>
             <div className="f-col g14">
@@ -232,8 +305,8 @@ export default function NewSite() {
             </div>
             <Advanced />
             <EnviormentalVariables />
-            <ButtonMainBlue click={handleDeploy}>
-              Deploy {siteName || "Site"}
+            <ButtonMainBlue click={handleDeploy} disabled={uploading}>
+              {uploading ? `Deploying ${siteName || "Site"}...` : `Deploy ${siteName || "Site"}`}
             </ButtonMainBlue>
           </CardCreate>
         ) : (
@@ -244,7 +317,9 @@ export default function NewSite() {
             </p>
             <CardCreate style="import-git-prov f-col g24 del new-site-load-in-up">
               <p className="label">Import Git Repository</p>
-              {!gitSignedIn ? (
+              {authLoading ? (
+                <Skeleton style="new-site-git-sign-in" />
+              ) : !gitSignedIn ? (
                 <CardCreate style="f-col select-git-prov g8">
                   <p className="subheading-two">
                     Select a Git provider to import an existing project from a Git Repository.
@@ -266,6 +341,8 @@ export default function NewSite() {
                   </button>
                   <ShortLink label={"Manage Login Connections"} />
                 </CardCreate>
+              ) : reposLoading ? (
+                <Skeleton style="new-site-git-repos" />
               ) : (
                 <div className="f-col git-repos-wrap g6">
                   <Search />
@@ -276,7 +353,9 @@ export default function NewSite() {
                         name={repo.name}
                         updatedAt={repo.updated_at}
                         avatarUrl={repo.owner?.avatar_url}
-                        onClick={() => handlePickRepo(repo)}
+                        onClick={() => importing ? null : handlePickRepo(repo)}
+                        style={importing === repo.id ? "importing" : ""}
+                        disabled={!!importing && importing !== repo.id}
                       />
                     ))}
                   </div>
