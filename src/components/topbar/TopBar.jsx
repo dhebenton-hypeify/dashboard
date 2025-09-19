@@ -23,6 +23,7 @@ export default function TopBar({ style = "", setShowMobileNavigation, showMobile
 
   const isOrg = pathname.startsWith("/org")
 
+
   // track resize
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1024)

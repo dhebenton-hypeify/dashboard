@@ -1,0 +1,231 @@
+/* =========================================
+LAST DEPLOYMENT
+========================================= */
+
+.site-card-thumbnail.deployments-card {
+    width: 50%;
+    aspect-ratio: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.last-deployment-card {
+    white-space: nowrap;
+    min-width: 980px;
+}
+
+.last-deployment-card .label {
+    white-space: nowrap;
+}
+
+.deploy-card-stat p{
+    font-size: 18px;
+    font-variation-settings: 'wght' 580;
+    color: #F7F7F7;
+}
+
+.atri-deployments {
+    min-width: 330px;
+}
+
+@media (max-width: 1280px) {
+    .card.last-deployment-card > :last-child {
+        flex-direction: column;
+        align-items: stretch;
+
+    }
+
+    .card.last-deployment-card {
+        min-width: 100%;
+    }
+
+    .site-card-thumbnail.deployments-card {
+        width: 100% !important;
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+}
+
+/* =========================================
+ DEPLOYMENT TABLE
+========================================= */
+
+.card.last-deploy-table {
+    min-width: 80%;
+}
+
+.deployments-table {
+    border-radius: 10px;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+.deployments-table .thead {
+    background-color: hsl(0, 0%, 80%, .02);
+    text-align: left;
+    color: #404040;
+    font-size: 12px;
+    font-variation-settings: 'wght' 550;
+}
+
+.deployments-table td,
+.deployments-table .thead th {
+    padding: 16px;
+}
+
+.deployments-table .deployment {
+    background-color: hsl(0, 0%, 100%, .02);
+    cursor: pointer;
+}
+
+.deployments-table .deployment:hover {
+    background-color: hsl(0, 0%, 100%, .06);
+}
+
+.deployments-table .deployment .label {
+    color: #E6E6E6;
+}
+
+.deployments-table .deployment:hover .label {
+    color: white;
+}
+
+.deployments-table tr {
+    border-bottom: 8px solid #1C1C1C;
+}
+
+.deployments-table tbody > :last-child {
+    border-bottom: none;
+}
+
+.deployment .table-deploy-id {
+    color: #404040;
+    font-size: 12px;
+    font-variation-settings: 'wght' 550;
+}
+
+.deployment:hover .table-deploy-id {
+    color: #4A4A4A;
+}
+
+.last-deployments-table-status {
+    padding: 8px;
+    line-height: 1 !important;
+    border-radius: 6px;
+    border: 1px solid hsl(216, 85%, 45%, .2);
+    color: #115ED4;
+    font-variation-settings: 'wght' 550;
+    font-size: 13px;
+    background-color: hsl(216, 85%, 45%, .2);
+}
+
+.deployments-table-stat {
+    font-size: 12px;
+    color: white;
+    font-variation-settings: 'wght' 450;
+}
+
+.table-arrow {
+    width: 20%;
+}
+
+.table-arrow svg {
+    height: 10px;
+    fill: #333333;
+    width: auto;
+    margin-right: 8px;
+}
+
+.deployment:hover .table-arrow svg {
+    margin-right: 0;
+    fill: #4D4D4D;
+}
+
+
+@media (max-width: 850px) {
+    .usage-circle-td {
+        display: none;
+    }
+
+    .last-deployments-table-status {
+        padding: 6px;
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+
+/* =========================================
+ DEPLOYMENT TABLE
+========================================= */
+
+.card.last-deploy-table .label{
+    font-size: 12px;
+}
+
+.deployments-table {
+    border-radius: 10px;
+}
+
+.deployments-table .thead {
+    font-size: 11px;
+}
+
+.deployments-table td,
+.deployments-table .thead th {
+    padding: 12px;
+}
+
+.deployment .f-col.g12 {
+    gap: 6px !important;
+}
+
+
+.deployments-table tr {
+    border-bottom: 7px solid #1C1C1C;
+}
+
+
+.deployment .table-deploy-id {
+    font-size: 11px;
+}
+
+.last-deployments-table-status {
+    padding: 7px;
+    font-size: 12px;
+}
+
+.deployments-table-stat {
+    font-size: 11px;
+}
+
+.table-arrow {
+    width: 10%;
+}
+
+.table-arrow svg {
+    height: 9px;
+}
+
+}
+
+.mob-text {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .mob-no-text {
+        display: none;
+    }
+
+    .mob-text {
+        display: block;
+    }
+}

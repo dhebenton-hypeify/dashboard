@@ -42,7 +42,7 @@ export const UsageCircleStat = ({ size = 18, stroke = 2.5, progress = 70, style 
   const offset = circumference - (progress / 100) * circumference;
 
   return (
-    <div className="circle-stat trans" style={{position: "relative" }}>
+    <div className={`circle-stat trans ${style}`} style={{position: "relative" }}>
       <p style={{position: "absolute", left: "50%", top: "50%", transform: "translateX(-50%) translateY(-50%)"}}>{progress}</p>
       <svg
         width={size}

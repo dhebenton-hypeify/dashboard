@@ -51,6 +51,12 @@ h4 {
     color: #454545;
 }
 
+
+.card-sublabel {
+    font-size: 12px;
+    font-variation-settings: 'wght' 520;
+    color: #4D4D4D;
+}
 /* =========================================
   STRUCTURE - MENU-SCROLL
 ========================================= */
@@ -66,6 +72,14 @@ h4 {
     height: 74px;
     border: 1px solid transparent;
     transition: all .4s cubic-bezier(0.3, 0.9, 0.4, 1);
+}
+
+.menu-scroll.general {
+    padding: 0 32px 20px 32px;
+}
+
+.menu-scroll.h1-mar h1 {
+    margin-right: auto;
 }
 
 .menu-scroll h1 {
@@ -102,6 +116,10 @@ h4 {
 
 .content-wrap.top-pad {
     padding: 40px 0;
+}
+
+.general-padding {
+    padding: 0 32px;
 }
 
 
@@ -211,7 +229,7 @@ h4 {
     .menu-scroll.stuck {
         padding: 12px 4%;
         margin: 0px;
-        height: 57px;
+        height: 51px;
     }
 
     .menu-scroll.stuck h1 {

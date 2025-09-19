@@ -80,6 +80,11 @@
   width: 100%;
 
 }
+.skeleton.sites-loading {
+  height: 200px;
+  border-radius: 20px;
+  animation: skeleton-loading 3s linear infinite, menu-load-in .19s ease;
+}
 
 /* =========================================
   MENU LOAD IN
@@ -179,7 +184,7 @@
 
     100% {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateX(0px);
     }
 }
 
@@ -191,7 +196,7 @@
 
     100% {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateX(0px);
     }
 }
 
@@ -230,3 +235,76 @@
   CREATE ORG
 ========================================= */
 
+
+
+/* =========================================
+  SITES LIST
+========================================= */
+
+.sites-load-in {
+  animation: sites-load-in .19s ease forwards;
+  opacity: 0;
+  transform: translateY(8px) ;
+}
+
+@keyframes sites-load-in {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.sites-load-in.del {
+  animation-delay: .06s;
+}
+
+.sites-load-in.del-two {
+  animation-delay: .12s;
+}
+
+.sites-fade-in {
+  animation: sites-load-fade-in .19s ease forwards;
+}
+
+@keyframes sites-load-fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+/* =========================================
+  SITES CARD
+========================================= */
+
+.sites-card-fade-up {
+  animation: sites-load-in .19s ease forwards;
+  opacity: 0;
+  transform: translateY(8px) ;
+}
+
+.sites-card-fade-up:nth-child(2) {
+  animation-delay: 0.06s;
+}
+
+.sites-card-fade-up:nth-child(3) {
+  animation-delay: 0.12s;
+}
+
+.sites-card-fade-up.searchbar {
+    animation-delay: 0.12s;
+}
+
+.sites-card-fade-up.menu-button-wrap {
+    animation-delay: 0.06s;
+}

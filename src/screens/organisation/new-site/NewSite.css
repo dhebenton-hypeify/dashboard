@@ -211,7 +211,8 @@
     position: absolute;
     bottom: 32px;
     padding: 14px;
-    background: linear-gradient(133.889deg, rgba(255, 255, 255, 4%) 0%, rgba(255, 255, 255, 3%) 100%);
+    background: linear-gradient(#202020, #202020), linear-gradient(133.889deg, rgba(37, 37, 37, 6%) 0%, rgba(32, 32, 32, 6%) 100%);
+    z-index: 1000;
     border-radius: 8px;
     border: 1px solid hsl(0, 0%, 100%, .1);
     font-size: 14px;

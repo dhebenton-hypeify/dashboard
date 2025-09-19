@@ -71,7 +71,7 @@ button {
 }
 
 /* =========================================
-  ICONS
+ICONS
 ========================================= */
 
 .icon.stroke {
@@ -82,6 +82,7 @@ button {
   FLEX
 ========================================= */
 
+
 .f-col {
   display: flex;
   flex-direction: column;
@@ -91,10 +92,50 @@ button {
   flex: 1;
 }
 
+.flex2 {
+  flex: 2;
+}
+
+.flex3 {
+  flex: 3;
+}
+
+.flex4 {
+  flex: 4;
+}
+
+.flex5 {
+  flex: 5;
+}
+
+.fleex6 {
+  flex: 6;
+}
+
+.flex7 {
+  flex: 7;
+}
+
+.flex8 {
+  flex: 8;
+}
+
+.flex9 {
+  flex: 9;
+}
+
 .cen,
 .f-row {
   display: flex;
   align-items: center;
+}
+
+.a-f-s {
+  align-items: flex-start;
+}
+
+.a-f-e {
+  align-items: flex-end;
 }
 
 .f-wrap {

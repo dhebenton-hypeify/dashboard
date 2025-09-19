@@ -11,7 +11,7 @@ export default function Layout() {
 
     const isNewSite = pathname.startsWith('/new-site')
     const isOrg = pathname.startsWith('/org')
-    const isSite = pathname.startsWith('/org/sites')
+    const isSite = pathname.startsWith('/org/:id/site')
     const isSiteSettings = pathname.startsWith('/org/site/settings')
 
 
@@ -50,7 +50,11 @@ export default function Layout() {
             { isOrg && <MenuOrg setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />}
             { isSiteSettings && <MenuSiteSettings />  }
             <div className='flex content' ref={contentRef}>
-                <TopBar style={`${isNewSite ? 'general' : 'wrap-medium'}`} setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />
+                {!isSite ? 
+                    <TopBar style={`general`} setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />
+                    :
+                    <TopBar style={`${isNewSite ? 'general' : 'wrap-medium'}`} setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />
+                }
                 <Outlet />
             </div>
         </>

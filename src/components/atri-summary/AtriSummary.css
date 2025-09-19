@@ -1,0 +1,131 @@
+/* =========================================
+TOP BLOCK
+========================================= */
+
+.atri-label-wrap {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    column-gap: 12px;
+    row-gap: 3px;
+    align-items: center;
+    padding-bottom: 12px;
+}
+
+.atri-sublabel {
+    color: #404040;
+    font-size: 13px;
+    font-variation-settings: 'wght' 500;
+}
+
+.atri-label-wrap div {
+    width: 36px;
+    aspect-ratio: 1;
+    background-color: #171717;
+    grid-row: 1 / 3;
+    border-radius: 6px;
+    border: 1px solid hsl(0, 0%, 90%, .05);
+}
+
+.atri-label-wrap svg {
+    height: 18px;
+    width: auto;
+    fill: #115ED4;
+}
+
+/* =========================================
+ ATRI CARD
+========================================= */
+
+.card.atri-card {
+    padding: 12px !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: min-content 1fr;
+    row-gap: 24px;
+}
+
+.atri-cards-wrap {
+    height: 100%;
+    align-items: stretch;
+}
+
+.card.atri-card svg {
+    fill: #404040;
+    align-self: center;
+    justify-self: end;
+}
+
+.atri-text-wrap {
+    grid-column: 1 / 3;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.atri-text-wrap p {
+    white-space: wrap;
+    font-size: 13px;
+    font-variation-settings: 'wght' 550;
+    color: #E6E6E6;
+    line-height: 1.6;
+}
+
+.atri-cards-wrap.chama {
+    flex-wrap: nowrap !important;
+}
+
+.atri-cards-wrap.no-chama {
+    flex-direction: column;
+}
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    /* =========================================
+    TOP BLOCK
+    ========================================= */
+
+    .atri-label-wrap {
+        column-gap: 10px;
+        row-gap: 1px;
+        padding-bottom: 10px;
+    }
+
+    .atri-sublabel {
+        font-size: 12px;
+    }
+
+    .atri-label-wrap div {
+        width: 32px;
+    }
+
+    .atri-label-wrap svg {
+        height: 15px;
+    }
+
+    /* =========================================
+    ATRI CARD
+    ========================================= */
+
+    .card.atri-card {
+        padding: 12px !important;
+        row-gap: 20px;
+    }
+
+    .atri-text-wrap p {
+        font-size: 12px;
+    }
+
+    /* =========================================
+    DEPLOYMENTS
+    ========================================= */
+
+    .card.atri-deployments {
+    }
+}
+
+@media (max-width: 850px) {
+    
+}

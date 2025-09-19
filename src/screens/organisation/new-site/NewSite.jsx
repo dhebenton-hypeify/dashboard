@@ -42,7 +42,7 @@ export default function NewSite() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: "https://dashboard.hypeify.io/new-site", // change in prod
+        redirectTo: "http://localhost:5173/new-site", // change in prod
         scopes: "repo",
       },
     })

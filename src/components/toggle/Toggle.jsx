@@ -25,3 +25,28 @@ export const Toggle = ({ isOn, setIsOn }) => {
         </div>
     )
 }
+
+export const ToggleNoLabel = ({ isOn, setIsOn, label }) => {
+    const [textFade, setTextFade] = useState(false)
+    const [displayValue, setDisplayValue] = useState(isOn)
+
+    function handleToggle() {
+        setIsOn(prev => !prev)
+
+        setTextFade(true)
+
+        setTimeout(() => {
+            setDisplayValue(prev => !prev)
+            setTextFade(false)
+        }, 180)
+    }
+
+    return (
+        <div className={`f-row f-wrap toggle-whole-wrap  g12 ${isOn ? '' : 'off' }`}>
+            <p className={`trans label ${ displayValue ? `on` : ''} ${textFade ? 'fade' : ''}`}>
+                {label}
+            </p>
+            <div className={`toggle-wrap trans ${isOn ? 'on' : 'off'}`}><button className={`toggle ${isOn ? 'on' : ''}`} onClick={handleToggle} /></div>
+        </div>
+    )
+}

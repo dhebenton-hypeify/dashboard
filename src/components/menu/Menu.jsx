@@ -7,7 +7,7 @@ import MenuControls from "./menu-controls-dropdown/MenuControls"
 import { useState } from "react"
 
 export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
-    const [ navigationState, setNavigationState ] = useState('expanded')
+    const [ navigationState, setNavigationState ] = useState('on-hover')
     const [ navigationHover, setNavigationHover ] = useState(false)
 
     const [ mobileShow, setMobileShow ] = useState(true) 

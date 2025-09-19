@@ -24,6 +24,10 @@ const DomainSettings = lazy(() =>
   import("./screens/site/settings/domain-settings/DomainSettings")
 )
 
+const Deployments = lazy(() =>
+  import("./screens/site/deployments/Deployments.jsx")
+)
+
 export default function App() {
   const supabase = useSupabaseClient()
   const { session, isLoading } = useSessionContext()
@@ -88,13 +92,11 @@ export default function App() {
           <Route path="/create-organisation" element={<CreateNewOrganisation />} />
           <Route path="/org/:id/sites" element={<Sites />} />
           <Route path="/new-site" element={<NewSite />} />
-
-          {/* Adjusted path to include siteId and siteName */}
           <Route
             path="/org/:orgId/site/:siteId/:siteName/upload-complete"
             element={<UploadComplete />}
           />
-
+          <Route path="/org/:id/site/deployments" element={<Deployments />} />
           <Route path="/org/:id/site/settings/domain-settings" element={<DomainSettings />} />
           <Route
             path="/"

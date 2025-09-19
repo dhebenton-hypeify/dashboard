@@ -78,11 +78,18 @@
     padding: 8px;
     border-radius: 8px;
     fill: #DEDEDE;
-    color: #DEDEDE;
     overflow: hidden;
     font-size: 12px;
     font-variation-settings: 'wght' 550;
     line-height: 0;
+}
+
+.site-card-git-upload a{
+    color: #DEDEDE;
+}
+
+.site-card-git-upload:hover {
+    background-color: hsl(0, 0%, 100%, .05);
 }
 
 .site-card-status-wrap {
@@ -113,7 +120,7 @@
 ========================================= */
 
 .site-card:hover {
-    background-color: hsl(0, 0%, 90%, .06);
+    background-color: hsl(0, 0%, 90%, .05);
     border: 1px solid hsl(0, 0%, 100%, .05);
 }
 
@@ -149,6 +156,11 @@
 .site-card-link:hover {
     color: #1F77FF !important;
 }
+
+ .site-card .transbutton:hover {
+        background-color: hsl(0, 0%, 100%, .05);
+        fill: white !important;
+    }
 
 
 
@@ -214,6 +226,8 @@
         width: 36px;
         height: auto;
     }
+
+   
 
     .site-card .circle-stat {
         font-size: 11px;
