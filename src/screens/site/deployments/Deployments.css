@@ -7,6 +7,13 @@ LAST DEPLOYMENT
     aspect-ratio: auto;
     height: 100%;
     object-fit: cover;
+    filter: brightness(70%) contrast(99%);
+    border: 1px solid hsl(0, 0%, 100%, .05);
+    cursor: pointer;
+}
+
+.site-card-thumbnail.deployments-card:hover {
+    filter: brightness(100%) contrast(100%);
 }
 
 
@@ -228,4 +235,11 @@ LAST DEPLOYMENT
     .mob-text {
         display: block;
     }
+
+    .last-deployment-last-stat {
+        flex-direction: column !important;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
 }
+
