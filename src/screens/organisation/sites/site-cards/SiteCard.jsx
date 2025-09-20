@@ -43,6 +43,7 @@ export default function SiteCard({
   productionUrl,
   repoUrl,
   createdAt,
+  click,
   thumbnail,
   loading = false,
 }) {
@@ -65,7 +66,7 @@ export default function SiteCard({
   }
 
   return (
-    <div className="site-card trans f-col g12">
+    <div onClick={click} className="site-card  trans f-col g12">
       <div
         className="site-card-thumbnail"
         style={{ backgroundImage: `url(${thumbnail || ""})` }}

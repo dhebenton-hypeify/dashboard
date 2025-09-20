@@ -27,6 +27,11 @@ const DomainSettings = lazy(() =>
 const Deployments = lazy(() =>
   import("./screens/site/deployments/Deployments.jsx")
 )
+const AtriChat = lazy(() =>
+  import("./screens/site/atri/AtriChat.jsx")
+)
+
+const Dashboard = lazy(() => import('./screens/site/dashboard/Dashboard.jsx'))
 
 export default function App() {
   const supabase = useSupabaseClient()
@@ -96,7 +101,9 @@ export default function App() {
             path="/org/:orgId/site/:siteId/:siteName/upload-complete"
             element={<UploadComplete />}
           />
-          <Route path="/org/:id/site/deployments" element={<Deployments />} />
+          <Route path="/org/:orgId/site/:siteId/:siteName/dashboard" element={<Dashboard />} />
+          <Route path="/org/:orgId/site/:siteId/:siteName/deployments" element={<Deployments />} />
+          <Route path="/org/:orgId/site/:siteId/:siteName/atri" element={<AtriChat />} />
           <Route path="/org/:id/site/settings/domain-settings" element={<DomainSettings />} />
           <Route
             path="/"

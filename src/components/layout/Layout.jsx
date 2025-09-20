@@ -49,7 +49,7 @@ export default function Layout() {
         <>  
             { isOrg && <MenuOrg setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />}
             { isSiteSettings && <MenuSiteSettings />  }
-            <div className='flex content' ref={contentRef}>
+            <div className='flex content atri' ref={contentRef}>
                 {!isSite ? 
                     <TopBar style={`general`} setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />
                     :

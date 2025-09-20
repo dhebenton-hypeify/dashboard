@@ -10,7 +10,7 @@ import { Skeleton } from "../../../../components/skeleton/Skeleton"
 
 export default function UploadComplete() {
   const navigate = useNavigate()
-  const { siteId } = useParams()
+  const { orgId, siteId, siteName } = useParams()
   const supabase = useSupabaseClient()
 
   const [thumbnail, setThumbnail] = useState(null)
@@ -20,7 +20,6 @@ export default function UploadComplete() {
   // Fetch thumbnail + site URL from Supabase
   useEffect(() => {
     if (!siteId) return
-    console.log("Fetching site details for siteId:", siteId)
 
     const fetchSite = async () => {
       try {
@@ -53,7 +52,7 @@ export default function UploadComplete() {
     confetti({
       particleCount: 120,
       spread: 120,
-      origin: { y: 0, x: 0.5 }, // top-center
+      origin: { x: 0.5, y: 0 },
       startVelocity: 30,
       ticks: 200,
     })
@@ -91,7 +90,11 @@ export default function UploadComplete() {
             </button>
           </div>
 
-          <ButtonMainBlue click={() => navigate("/org")}>
+          <ButtonMainBlue
+            click={() =>
+              navigate(`/org/${orgId}/site/${siteId}/${siteName}/deployments`)
+            }
+          >
             Continue to dashboard
           </ButtonMainBlue>
         </CardCreate>

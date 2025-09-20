@@ -2,6 +2,7 @@
 LAST DEPLOYMENT
 ========================================= */
 
+
 .site-card-thumbnail.deployments-card {
     width: 50%;
     aspect-ratio: auto;
@@ -52,6 +53,8 @@ LAST DEPLOYMENT
         max-width: 100%;
         min-width: 100%;
     }
+
+    
 
 }
 
@@ -168,6 +171,10 @@ LAST DEPLOYMENT
 ========================================= */
 
 @media (max-width: 1330px) {
+
+    .last-deployment-last-stat-wrap {
+        flex-wrap: wrap;
+    }
 
 /* =========================================
  DEPLOYMENT TABLE

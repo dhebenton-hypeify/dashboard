@@ -1,16 +1,24 @@
 import { ArrowRight, Ship } from "../../assets/Icons"
 import Organisation from "./dropdowns/Organisation"
-import { OrgTabs, SiteSettingsTabs } from "./Tabs"
+import { OrgTabs, SiteSettingsTabs, SiteTabs } from "./Tabs"
 import './Menu.css'
 import { ButtonTrans } from "../buttons/TransButton"
 import MenuControls from "./menu-controls-dropdown/MenuControls"
 import { useState } from "react"
+import { useLocation, useMatch  } from "react-router-dom"
+
 
 export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
     const [ navigationState, setNavigationState ] = useState('on-hover')
     const [ navigationHover, setNavigationHover ] = useState(false)
 
     const [ mobileShow, setMobileShow ] = useState(true) 
+
+    const { pathname } = useLocation()
+
+    const siteMatch = useMatch("/org/:orgId/site/*");
+    const isSite = Boolean(siteMatch);
+
 
     function handleNavigationHover() {
         setNavigationHover(true)
@@ -21,7 +29,7 @@ export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
         <div className={`menu-wrap ${navigationState} ${showMobileNavigation ? 'show' : "hide"}`} onClick={() => setShowMobileNavigation(false)}>
             <div onMouseEnter={() => handleNavigationHover()} className={`menu org dropdown-wrap ${navigationState} ${navigationHover ? 'hover' : ''} f-col g8`}>
                 <Organisation />
-                <OrgTabs />
+                {isSite ? <SiteTabs/> : <OrgTabs />}
                 <div className="f-row j-s-b menu-load-in">
                     <div className="change-log">
                         <ButtonTrans style="not-finished ">
@@ -37,6 +45,8 @@ export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
         </div>
     )
 }
+
+
 
 export const MenuSiteSettings = ({}) => {
     return (

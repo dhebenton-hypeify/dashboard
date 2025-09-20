@@ -6,7 +6,7 @@ import { Search } from "../../../components/global-components/search/Search";
 import { UsageCircle } from "../../../components/charts/usage-circle/UsageCircle";
 import { Card } from "../../../components/cards/Cards";
 import SiteCard from "./site-cards/SiteCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Skeleton } from "../../../components/skeleton/Skeleton";
 import { useSupabaseClient, useSessionContext } from "@supabase/auth-helpers-react";
 
@@ -19,6 +19,7 @@ export default function Sites() {
   const sentinelRef = useRef(null);
 
   const supabase = useSupabaseClient();
+  const { orgId } = useParams();
   const { session } = useSessionContext();
   const navigate = useNavigate();
 
@@ -191,6 +192,9 @@ export default function Sites() {
                 {sites.map((site) => (
                   <SiteCard
                     key={site.id}
+                    click={() =>
+                      navigate(`/org/${site.org_id}/site/${site.id}/${site.name}/dashboard`)
+                    }
                     name={site.name}
                     productionUrl={site.production_url || site.staging_url}
                     repoUrl={site.repo_url}

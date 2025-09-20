@@ -235,6 +235,10 @@ h4 {
     .menu-scroll.stuck h1 {
         font-size: 16px;
     }
+
+    .menu-scroll.general {
+        padding: 0 28px 20px 28px;
+    }
 }
 
 
@@ -255,6 +259,10 @@ h4 {
 
     .mob-pad {
         padding: 0 4%;
+    }
+
+    .menu-scroll.general {
+        padding: 0 4% 32px 4%;
     }
 
     .content-wrap {

@@ -1,0 +1,186 @@
+/* =========================================
+  STRUCTURE
+========================================= */
+
+.content-wrap-top-pad.atri {
+    flex: 1;
+}
+
+.content.atri {
+    display: flex;
+    flex-direction: column;
+}
+
+.content.atri .topbar {
+    width: 100%;
+}
+
+.atr-wrap {
+    padding: 60px 0;
+    width: 800px;
+    margin: 0 auto;
+    flex: 1;
+    height: 100%;
+    justify-content: end;
+    position: relative;
+}
+
+/* =========================================
+  TOP
+========================================= */
+
+.atri-heading-wrap {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    align-items: center;
+}
+
+.atri-chat-icon-wrap {
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 13px;
+    background-color: #0D68F5;
+    border: 1px solid hsl(0, 0%, 100%, .4);
+}
+
+.atri-chat-icon-wrap svg {
+    height: 20px;
+    width: auto;
+    fill: white;
+}
+
+/* =========================================
+  PROMPT SUGGESTION
+========================================= */
+
+.prompt-suggestion {
+    padding: 12px;
+    border-radius: 8px;
+    color: #4D4D4D;
+    fill: #4D4D4D;
+    font-size: 14px;
+    font-variation-settings: 'wght' 550;
+}
+
+.prompt-suggestion .icon.width {
+    height: auto;
+    width: 17px;
+}
+
+.prompt-suggestion .icon.height {
+    height: 17px;
+    width: auto;
+}
+
+.prompt-suggestion:hover {
+    fill: #737373;
+    background-color: hsl(0, 0%, 100%, .04);
+    color: #737373;
+}
+
+.prompt-suggestions-wrap {
+    width: 100%;
+    position: absolute;
+    top: -36px;
+    transform: translateY(-100%);
+}
+
+/* =========================================
+  INPUT
+========================================= */
+
+.atri-input-canvas-wrap {
+    width: 100%;
+    background-color: hsl(0, 0%, 100%, .03);
+    padding: 10px;
+    border-radius: 8px;
+    align-items: center;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+/* =========================================
+  DROPDOWN
+========================================= */
+
+.atri-theme-dropdown {
+    justify-self: end;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: hsl(0, 0%, 80%, .01);
+    border: 1px solid hsl(0, 0%, 100%, .03);
+    color: #3B3B3B;
+    fill: #3B3B3B;
+    font-size: 12px;
+    font-variation-settings: 'wght' 550;
+    width: 130px;
+}
+
+.atri-theme-dropdown .chevron {
+    height: 10px;
+    margin-left: auto;
+    width: auto;
+}
+
+/* =========================================
+  INPUT
+========================================= */
+
+.atri-input {
+    grid-column: 1 / 3;
+    background-color: hsl(0, 0%, 100%, .03);
+    border: 1px solid hsl(0, 0%, 100%, .04);
+    border-radius: 6px;
+    position: relative;
+    height: 44px;
+}
+
+.atri-input input{
+    padding: 12px;
+    height: 100%;
+    width: calc(100% - 50px);
+    margin-right: 50px;
+    font-size: 14px;
+    font-variation-settings: 'wght' 550;
+    color: white;
+}
+
+.atri-input input::placeholder {
+    color: #4D4D4D;
+}
+
+.atri-input .button {
+    position: absolute;
+    right: 8px;
+    top: 7px;
+    stroke: hsl(0, 0%, 100%, .6);
+    bottom: 7px;
+    border-radius: 4px;
+    height: auto;
+    width: 28px;
+    padding: 0;
+}
+
+.atri-input .button:hover {
+    stroke: white;
+    fill: white;
+}
+
+.atri-input:hover,
+.atri-input.focus {
+    background-color: hsl(0, 0%, 100%, .05);
+    border: 1px solid hsl(0, 0%, 100%, .06);
+}
+
+.atri-input:hover input::placeholder,
+.atri-input.focus input::placeholder {
+    color: #575757;
+}
+
+.atri-input.focus {
+    border-color: hsl(0, 0%, 100%, .13);
+}

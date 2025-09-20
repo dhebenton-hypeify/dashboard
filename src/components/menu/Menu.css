@@ -7,6 +7,11 @@
   border-right: 1px solid #212121;
   height: 100%;
   transition: all .38s cubic-bezier(0.3, 0.9, 0.4, 1);
+  overflow-Y: atuo;
+  max-height: 100%;
+  flex-wrap: nowrap;
+  overflow-x: visible !important;
+  scrollbar-width: none;
 }
 
 .tab {
@@ -21,6 +26,8 @@
   MENU COLLAPSED
 ========================================= */
 
+.menu.collapsed .menu-tab-label,
+.menu.on-hover .menu-tab-label,
 .menu.on-hover .change-log,
 .menu.on-hover .org-label,
 .menu.on-hover .org-plan,
@@ -33,6 +40,7 @@
   pointer-events: none;
 }
 
+.menu.expanded .menu-tab-label,
 .menu.on-hover.hover .change-log,
 .menu.on-hover.hover .org-label,
 .menu.on-hover.hover .org-plan,
@@ -69,7 +77,7 @@
   transform: translateX(-24px);
 }
 
-
+.menu.on-hover.hover .menu-tab-label,
 .menu.on-hover.hover .change-log,
 .menu.on-hover.hover .tab span,
 .menu.expanded .change-log,
@@ -114,6 +122,7 @@
   transform: translateX(0);
 }
 
+.menu.on-hover:hover .menu-tab-label,
 .menu.on-hover:hover .change-log,
 .menu.on-hover:hover .org-label,
 .menu.on-hover:hover .org-plan,
@@ -150,7 +159,7 @@
   display: grid;
   grid-template-columns: 15px 1fr;
   gap: 10px;
-  height: 35px;
+  min-height: 35px;
   font-size: 13px;
   font-variation-settings: 'wght' 550;
   color: #595959;
@@ -176,6 +185,10 @@
 .tab .icon.height {
   height: 15px;
   width: auto;
+}
+
+.tab span {
+  transform: translateY(-0.5px);
 }
 
 
@@ -228,7 +241,7 @@
 ========================================= */
 
 .tab.settings {
-  height: 30px;
+  min-height: 30px;
   display: block;
   text-align: left;
   font-size: 12px;
@@ -240,6 +253,21 @@
 
 .menu-scroll.heading-margin-right h1{
   margin-right: auto;
+}
+
+/* =========================================
+  LABEL
+========================================= */
+
+.menu-tab-label {
+  font-size: 12px;
+  font-variation-settings: 'wght' 600;
+  color: #333333;
+  padding: 16px 14px 8px 14px;
+}
+
+.menu-tab-label.first {
+  padding-top: 0px;
 }
 
 /* =========================================
@@ -261,6 +289,7 @@
 
   .menu.org > :last-child {
     margin: auto 12px 14px 12px;
+    padding-top: 32px;
   }
 
   /* =========================================
@@ -334,12 +363,12 @@
 
   .tab {
     gap: 9px;
-    height: 32px;
+    min-height: 32px;
     font-size: 12px;
     padding: 0 9px;
   }
 
-  .tan .icon.width {
+  .tab .icon.width {
     width: 14px;
   }
 
@@ -362,8 +391,13 @@
   ========================================= */
 
   .tab.settings {
-    height: 29px;
+    min-height: 29px;
     font-size: 12px;
+  }
+
+  .menu-tab-label {
+    font-size: 11px;
+    padding: 14px 12px 4px 12px;
   }
 
 }
@@ -403,6 +437,7 @@
   .menu {
     width: 100%;
     height: auto;
+    max-height: 90%;
     background-color: #1A1A1A;
     padding: 4% 28px;
     border-radius: 12px 12px 0 0 ;
@@ -415,7 +450,7 @@
 
   .tab {
     font-size: 15px;
-    height: 42px;
+    min-height: 42px;
     margin: 0;
     padding: 0 12px;
     gap: 12px;
@@ -431,6 +466,11 @@
     width: 20px;
     height: auto;
   }
+
+  .menu-tab-label {
+    font-size: 15px;
+    padding: 24px 0 8px 0;
+  }
 }
 
 
@@ -441,7 +481,7 @@
 
     .tab {
       font-size: 13px;
-      height: 36px;
+      min-height: 36px;
       padding: 0 10px;
       gap: 10px;
       grid-template-columns: 16px 1fr;
@@ -456,4 +496,9 @@
       width: 16px;
       height: auto;
     }
+
+    .menu-tab-label {
+    font-size: 13px;
+    padding: 20px 0 8px 0;
+  }
 }

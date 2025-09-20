@@ -79,3 +79,60 @@
 .toggle-whole-wrap.off .label{
     color: #B3B3B3;
 }
+
+
+/* =========================================
+  RESPONSIVE ADJUSTMENT
+========================================= */
+
+@media (max-width: 1330px) {
+    /* =========================================
+    TOGGLE
+    ========================================= */
+
+    .toggle {
+        width: 42px;
+        height: 20px;
+    }
+
+
+    .toggle::before {
+        height: 100%;
+    }
+
+
+    .toggle.on::before {
+        transform: translateX(22px);
+        opacity: 1;
+    }
+
+    /* =========================================
+    TEXT
+    ========================================= */
+
+    .toggle-text {
+        font-size: 12px;
+    }
+
+
+
+
+    /* =========================================
+    LABEL
+    ========================================= */
+
+    .toggle-whole-wrap .label {
+        font-size: 12px;
+    }
+
+    .toggle-whole-wrap.off .label{
+        color: #B3B3B3;
+        font-size: 12px;
+    }
+
+
+    /* =========================================
+    RESPONSIVE ADJUSTMENT
+    ========================================= */
+
+}

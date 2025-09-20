@@ -91,6 +91,7 @@
 
   .card.can .card{
     padding: 14px;
+    border-radius: 10px;
   }
 
 
@@ -101,5 +102,13 @@
   .card.create-organisation {
       padding: 20px;
       width: 100%;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+
+  .card.can .card{
+    border-radius: 8px;
   }
 }

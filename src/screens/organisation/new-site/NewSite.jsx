@@ -23,6 +23,12 @@ export default function NewSite() {
   const [selectedOrg, setSelectedOrg] = useState(null)
   const [siteRow, setSiteRow] = useState(null)
 
+  // deployment metadata
+  const [staged, setStaged] = useState(null)
+  const [commitHash, setCommitHash] = useState(null)
+  const [commitMessage, setCommitMessage] = useState(null)
+  const [buildDuration, setBuildDuration] = useState(null)
+
   // Loading states
   const [authLoading, setAuthLoading] = useState(true)
   const [reposLoading, setReposLoading] = useState(false)
@@ -198,9 +204,15 @@ export default function NewSite() {
         throw new Error("Prepare failed: " + (prep.error || "unknown error"))
       }
 
+      // store metadata from /prepare
       setPickedRepo(repo)
       setSiteRow(site)
       setSiteName(repo.name)
+      setStaged(prep.staged)
+      setCommitHash(prep.commitHash)
+      setCommitMessage(prep.commitMessage)
+      setBuildDuration(prep.buildDuration)
+
       console.log("✅ Site created (waiting for backend to update staging_url):", site)
     } catch (err) {
       console.error("❌ handlePickRepo error:", err)
@@ -219,15 +231,37 @@ export default function NewSite() {
       return
     }
 
+    if (!session?.user?.id) {
+      console.error("❌ No session user ID for deploy")
+      alert("You must be logged in to deploy.")
+      return
+    }
+
+    if (!staged) {
+      console.error("❌ No staged site reference from /prepare")
+      alert("Missing staged site reference, please prepare again.")
+      return
+    }
+
     setUploading(true)
 
     try {
       const res = await fetch("https://dashboard.hypeify.io/api/publish", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ siteName: siteRow.name, siteId: siteRow.id }),
+        body: JSON.stringify({
+          siteName: siteRow.name,
+          siteId: siteRow.id,
+          deployedBy: session.user.id,
+          staged,
+          commitHash,
+          commitMessage,
+          buildDuration,
+        }),
       })
+      console.log("Publish response status:", res.status)
       const pub = await res.json()
+      console.log("Publish response JSON:", pub)
       if (!pub.success) throw new Error(pub.error || "Publish failed")
 
       const { data: updated, error: updateError } = await supabase

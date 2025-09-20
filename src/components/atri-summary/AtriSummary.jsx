@@ -14,7 +14,7 @@ export const AtriSummaryDeployment = () => {
         const observer = new ResizeObserver(entries => {
             for (let entry of entries) {
                 const width = entry.contentRect.width
-                setIsChama(width > 700) // only apply if width is greater than 500px
+                setIsChama(width > 700)
             }
         })
 
@@ -28,7 +28,7 @@ export const AtriSummaryDeployment = () => {
     }, [])
 
     return (
-        <Card style="can sites-card-fade-up atri-deployments f-col flex2 g12">
+        <Card style="can sites-card-fade-up atri-deployments f-col flex3 g12">
             <AtriLabel subheading={"Generated insights from your last deploy"} />
             <div
                 ref={containerRef}

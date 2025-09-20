@@ -25,7 +25,7 @@ export default function Deployments({}) {
         <div className="content-wrap top-pad">
             <div ref={sentinelRef} style={{ height: "1px" }} />
                 <div className={`menu-scroll sites-card-fade-up f-row h1-mar g14 ${isStuck ? "stuck" : "general"}`}>
-                <h1>Your Sites</h1>
+                <h1>Deployments</h1>
                 <ButtonMain>
                     <span className="mob-no-text">Deployment Settings</span>
                     <span className="mob-text">Settings</span>
