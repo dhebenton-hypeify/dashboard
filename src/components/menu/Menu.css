@@ -7,11 +7,8 @@
   border-right: 1px solid #212121;
   height: 100%;
   transition: all .38s cubic-bezier(0.3, 0.9, 0.4, 1);
-  overflow-Y: atuo;
   max-height: 100%;
   flex-wrap: nowrap;
-  overflow-x: visible !important;
-  scrollbar-width: none;
 }
 
 .tab {
@@ -20,6 +17,12 @@
 
 .menu.org > :last-child {
   margin: auto 14px 16px 14px;
+}
+
+.menu-tabs-wrap {
+  overflow-Y: auto;
+  scrollbar-width: none;
+
 }
 
 /* =========================================
