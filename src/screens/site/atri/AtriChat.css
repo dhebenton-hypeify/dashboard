@@ -332,7 +332,7 @@
         line-height: 1.4;
         text-align: left;
         border-radius: 7px;
-        font-size: 11px;
+        font-size: 12px;
     }
 
     .prompt-suggestion .icon.width {
@@ -354,7 +354,7 @@
     .prompt-suggestions-wrap {
         width: 100%;
         position: absolute;
-        top: -36px;
+        top: -20px;
         transform: translateY(-100%);
     }
 
@@ -470,5 +470,18 @@
         opacity: 1;
     }
 
+    .atri-input input {
+        font-size: 16px;             
+        transform: scale(0.8125);    
+        transform-origin: left ;
+    }
+
+    .prompt-suggestion .icon {
+        display: none;
+    }
+
+    .prompt-suggestion {
+        background-color: hsl(0, 0%, 100%, .01);
+    }
 }
 
