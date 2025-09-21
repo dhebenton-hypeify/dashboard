@@ -1,76 +1,60 @@
-import { useEffect, useRef, useState } from "react"
-import { Atri, Cloud, Analytics, Performance, Chevron, Plus, Up } from "../../../assets/Icons"
-import { ButtonMainBlueIconLight } from "../../../components/buttons/ButtonMain"
-import { ButtonTrans } from "../../../components/buttons/TransButton"
-import "./AtriChat.css"
-import Messages from "./Components/Messages"
+import { useState, useEffect } from "react";
+import { Atri, Cloud, Analytics, Performance, Chevron, Plus, Up } from "../../../assets/Icons";
+import { ButtonMainBlueIconLight } from "../../../components/buttons/ButtonMain";
+import { ButtonTrans } from "../../../components/buttons/TransButton";
+import "./AtriChat.css";
+import Messages from "./Components/Messages";
 
 export default function AtriChat() {
-  const [inputFocus, setInputFocus] = useState(false)
-  const [chatActivated, setChatActivated] = useState(false)
-  const [chatHeadingRender, setChatHeadingRender] = useState(true)
-  const [messages, setMessages] = useState(() => {
-    const saved = localStorage.getItem("atri-messages")
-    return saved ? JSON.parse(saved) : [] // restore from localStorage
-  })
-  const [loading, setLoading] = useState(false)
-  const [value, setValue] = useState("")
+  const [inputFocus, setInputFocus] = useState(false);
+  const [chatActivated, setChatActivated] = useState(false);
+  const [chatHeadingRender, setChatHeadingRender] = useState(true);
+  const [messages, setMessages] = useState([]); // { role: "user" | "assistant", content: string }
+  const [loading, setLoading] = useState(false);
 
-  const messageWrapRef = useRef(null)
-
-  // Persist messages to localStorage
+  // Ensure sessionId persists across refresh but resets on tab close
+  const [sessionId, setSessionId] = useState(null);
   useEffect(() => {
-    localStorage.setItem("atri-messages", JSON.stringify(messages))
-  }, [messages])
-
-  // Clear messages only when tab closes
-  useEffect(() => {
-    const clearOnUnload = () => {
-      localStorage.removeItem("atri-messages")
+    let existing = sessionStorage.getItem("atri-session-id");
+    if (!existing) {
+      existing = crypto.randomUUID(); // unique ID for this tab
+      sessionStorage.setItem("atri-session-id", existing);
     }
-    window.addEventListener("beforeunload", clearOnUnload)
-    return () => window.removeEventListener("beforeunload", clearOnUnload)
-  }, [])
-
-  // Auto scroll to bottom on new messages
-  useEffect(() => {
-    if (messageWrapRef.current) {
-      messageWrapRef.current.scrollTop = messageWrapRef.current.scrollHeight
-    }
-  }, [messages, loading])
+    setSessionId(existing);
+  }, []);
 
   function handleChatActivation() {
-    setChatActivated(true)
-    setTimeout(() => setChatHeadingRender(false), 900)
+    setChatActivated(true);
+    setTimeout(() => setChatHeadingRender(false), 900);
   }
 
   async function handleSend(input) {
-    if (!input.trim()) return
-    handleChatActivation()
+    if (!input.trim() || !sessionId) return;
+    handleChatActivation();
 
-    setMessages((prev) => [...prev, { role: "user", content: input }])
-    setLoading(true)
+    setMessages((prev) => [...prev, { role: "user", content: input }]);
+    setLoading(true);
 
     try {
       const res = await fetch("https://dashboard.hypeify.io/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: input }),
-      })
+        body: JSON.stringify({ message: input, sessionId }), // include sessionId
+      });
 
       if (!res.ok) {
-        console.error("Chat request failed", await res.text())
-        return
+        console.error("Chat request failed", await res.text());
+        return;
       }
 
-      const data = await res.json()
+      const data = await res.json();
       if (data.reply) {
-        setMessages((prev) => [...prev, { role: "assistant", content: data.reply }])
+        setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
       }
     } catch (err) {
-      console.error("Chat error:", err)
+      console.error("Chat error:", err);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
   }
 
@@ -86,7 +70,7 @@ export default function AtriChat() {
           </div>
         )}
 
-        <div className="atri-chat-message-wrap flex" ref={messageWrapRef}>
+        <div className="atri-chat-message-wrap flex">
           {chatActivated && <Messages messages={messages} loading={loading} />}
         </div>
 
@@ -122,24 +106,23 @@ export default function AtriChat() {
           <div className={`atri-input trans ${inputFocus ? "focus" : ""}`}>
             <input
               type="text"
-              value={value}
-              onChange={(e) => setValue(e.target.value)}
               onFocus={() => setInputFocus(true)}
               onBlur={() => setInputFocus(false)}
               placeholder="Ask your question"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  e.preventDefault()
-                  handleSend(value)
-                  setValue("")
+                  e.preventDefault();
+                  handleSend(e.target.value);
+                  e.target.value = "";
                 }
               }}
             />
             <ButtonMainBlueIconLight
               click={() => {
-                if (value) {
-                  handleSend(value)
-                  setValue("")
+                const input = document.querySelector(".atri-input input");
+                if (input && input.value) {
+                  handleSend(input.value);
+                  input.value = "";
                 }
               }}
             >
@@ -149,5 +132,5 @@ export default function AtriChat() {
         </div>
       </div>
     </div>
-  )
+  );
 }
