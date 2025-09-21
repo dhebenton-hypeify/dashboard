@@ -11,6 +11,7 @@ export default function Layout() {
 
     const isNewSite = pathname.startsWith('/new-site')
     const isOrg = pathname.startsWith('/org')
+    const isAtri = pathname.includes("atri")
     const isSite = pathname.startsWith('/org/:id/site')
     const isSiteSettings = pathname.startsWith('/org/site/settings')
 
@@ -49,7 +50,7 @@ export default function Layout() {
         <>  
             { isOrg && <MenuOrg setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />}
             { isSiteSettings && <MenuSiteSettings />  }
-            <div className='flex content atri' ref={contentRef}>
+            <div className={`flex content  ${isAtri ? 'atri' : ''}`} ref={contentRef}>
                 {!isSite ? 
                     <TopBar style={`general`} setShowMobileNavigation={setShowMobileNavigation} showMobileNavigation={showMobileNavigation} />
                     :
