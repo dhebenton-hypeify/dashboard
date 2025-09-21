@@ -411,7 +411,7 @@
     bottom: 0 !important;
     right: 0 !important;
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     background-color: hsl(0, 0%, 4%, .8);
     z-index: 100000;
     backdrop-filter: blur(7px);
@@ -421,6 +421,7 @@
     transition: opacity .2s cubic-bezier(0.3, 0.9, 0.4, 1);
   }
 
+
   .menu-wrap.show {
     opacity: 1;
     pointer-events: all;
@@ -428,6 +429,10 @@
 
    .menu-wrap.hide {
     transition: opacity .2s cubic-bezier(0.3, 0.9, 0.4, 1) .2s;
+   }
+
+   .menu.on-hover {
+    width: 100%;
    }
 
    .menu-wrap.hide .menu {

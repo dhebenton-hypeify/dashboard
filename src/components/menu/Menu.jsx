@@ -9,7 +9,7 @@ import { useLocation, useMatch  } from "react-router-dom"
 
 
 export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
-    const [ navigationState, setNavigationState ] = useState('on-hover')
+    const [ navigationState, setNavigationState ] = useState('expand')
     const [ navigationHover, setNavigationHover ] = useState(false)
 
     const [ mobileShow, setMobileShow ] = useState(true) 
