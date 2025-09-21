@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Atri, Cloud, Analytics, Performance, Up, Chevron, Plus } from "../../../assets/Icons"
+import { Analytics, Atri, Chevron, Cloud, Copy, Pen, Performance, Plus, Reload, Up } from "../../../assets/Icons"
 import { ButtonMainBlueIconLight } from '../../../components/buttons/ButtonMain'
 import { ButtonTrans } from '../../../components/buttons/TransButton'
 import './AtriChat.css'
@@ -13,35 +13,65 @@ export default function AtriChat({}) {
 
     function handleChatActivation() {
         setChatActivated(true)
-        setTimeout(() => setChatHeadingRender(false), 420)
+        setTimeout(() => setChatHeadingRender(false), 900)
     }
     
 
     return (
         <div className="content-wrap-top-pad atri">
-            <div className="atr-wrap f-col mob-pad g36">
-                <div className="atri-heading-wrap f-col g16">
-                    <div className="atri-chat-icon-wrap cen">
-                        <Atri />
+            <div className={`atr-wrap f-col mob-pad g36 ${chatActivated ? 'active' : ''}`}>
+                { chatHeadingRender &&
+                    <div className="atri-heading-wrap f-col g16">
+                        <div className="atri-chat-icon-wrap cen">
+                            <Atri />
+                        </div>
+                        <h2>How can i assist you today david</h2>
                     </div>
-                    <h1>How can i assist you today david</h1>
+                }
+                <div className="atri-chat-message-wrap flex">
+                    { chatActivated &&
+                        <div className='atri-chat-canvas f-col g8 flex'>
+                            <div className="atri-message g12 user">
+                                <p>Show me top analytics insights from the past 30 days.</p>
+                                <ButtonTrans>
+                                    <Copy />
+                                </ButtonTrans>
+                                <ButtonTrans>
+                                    <Pen />
+                                </ButtonTrans>
+                            </div>
+                            <div className="atri-message atri g12">
+                                <div className="atri-chat-icon-wrap  cen">
+                                    <Atri />
+                                </div>
+                                <p>Show me top analytics insights from the past 30 days.</p>
+                                <ButtonTrans>
+                                    <Copy />
+                                </ButtonTrans>
+                                <ButtonTrans>
+                                    <Reload />
+                                </ButtonTrans>
+                            </div>
+                        </div>
+                    }
                 </div>
-                
                 <div className="atri-input-canvas-wrap g12">
-                    <div className="f-col prompt-suggestions-wrap g8">
-                        <button className="prompt-suggestion f-row g10">
-                            <Cloud/>
-                            Show me top analytics insights from the past 30 days.
-                        </button>
-                        <button className="prompt-suggestion f-row g10">
-                            <Analytics/>
-                            Compare the last two deployments and highlight improvements or regressions
-                        </button>
-                        <button className="prompt-suggestion f-row g10">
-                            <Performance/>
-                            Give me a Lighthouse breakdown for performance, accessibility, SEO, and best practices
-                        </button>
-                    </div>
+                    { chatHeadingRender &&
+                        <div className="f-col prompt-suggestions-wrap g8">
+                            <button className="prompt-suggestion f-row g10">
+                                <Cloud/>
+                                Show me top analytics insights from the past 30 days.
+                            </button>
+                            <button className="prompt-suggestion f-row g10">
+                                <Analytics/>
+                                Compare the last two deployments and highlight improvements or regressions
+                            </button>
+                            <button className="prompt-suggestion f-row g10">
+                                <Performance/>
+                                Give me a Lighthouse breakdown for performance, accessibility, SEO, and best practices
+                            </button>
+                        </div>
+                    }
                     <ButtonTrans style='not-finished'
                     >
                         <Plus />
