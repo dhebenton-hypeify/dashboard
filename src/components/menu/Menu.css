@@ -443,18 +443,18 @@
    .menu-wrap.hide .menu {
     transform: translateY(100%);
    }
-
+ 
   .menu {
     width: 100%;
     height: auto;
-    max-height: 90%;
+    max-height: 90% !important;
     background-color: #1A1A1A;
     padding: 4% 28px;
     border-radius: 12px 12px 0 0 ;
     border-top: 1px solid hsl(0, 0%, 100%, .1);
   }
 
-  .menu > :last-child {
+  .menu-tabs-wrap > :last-child {
     display: none;
   }
 
