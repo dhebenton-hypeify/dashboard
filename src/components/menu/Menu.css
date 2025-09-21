@@ -5,24 +5,27 @@
 .menu {
   width: 240px;
   border-right: 1px solid #212121;
-  height: 100%;
+  max-height: 100svh !important;
+  height: 100svh !important;
   transition: all .38s cubic-bezier(0.3, 0.9, 0.4, 1);
-  max-height: 100%;
   flex-wrap: nowrap;
+  height: fit-content;
 }
 
 .tab {
   margin: 0 14px;
 }
 
-.menu.org > :last-child {
+.menu-tabs-wrap > :last-child {
   margin: auto 14px 16px 14px;
+  padding-top: 52px;
 }
 
 .menu-tabs-wrap {
-  overflow-Y: auto;
+  overflow: scroll;
+  height: fit-content;
   scrollbar-width: none;
-
+  flex: 1;
 }
 
 /* =========================================
@@ -290,9 +293,8 @@
     margin: 0 12px;
   }
 
-  .menu.org > :last-child {
+  .menu-tabs-wrap > :last-child {
     margin: auto 12px 14px 12px;
-    padding-top: 32px;
   }
 
   /* =========================================

@@ -29,17 +29,19 @@ export const MenuOrg = ({setShowMobileNavigation, showMobileNavigation}) => {
         <div className={`menu-wrap ${navigationState} ${showMobileNavigation ? 'show' : "hide"}`} onClick={() => setShowMobileNavigation(false)}>
             <div onMouseEnter={() => handleNavigationHover()} className={`menu org dropdown-wrap ${navigationState} ${navigationHover ? 'hover' : ''} f-col g8`}>
                 <Organisation />
-                <div className="f-col g8 menu-tabs-wrap">{isSite ? <SiteTabs/> : <OrgTabs />}</div>
-                <div className="f-row j-s-b menu-load-in">
-                    <div className="change-log">
-                        <ButtonTrans style="not-finished ">
-                            <Ship />
-                        </ButtonTrans>
+                <div className="f-col g8 menu-tabs-wrap">
+                    {isSite ? <SiteTabs/> : <OrgTabs />}
+                    <div className="f-row j-s-b menu-load-in">
+                        <div className="change-log">
+                            <ButtonTrans style="not-finished ">
+                                <Ship />
+                            </ButtonTrans>
+                        </div>
+                        <MenuControls
+                            navigationState={navigationState}
+                            setNavigationState={setNavigationState}
+                        />
                     </div>
-                    <MenuControls
-                        navigationState={navigationState}
-                        setNavigationState={setNavigationState}
-                    />
                 </div>
             </div>
         </div>
