@@ -17,7 +17,6 @@
 .content.atri {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .content.atri .topbar {

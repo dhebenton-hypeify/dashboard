@@ -43,12 +43,11 @@ export default function NewSite() {
   const supabase = useSupabaseClient()
   const { session } = useSessionContext()
 
-  // GitHub OAuth
   const handleGitHubLogin = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "github",
       options: {
-        redirectTo: "http://localhost:5173/new-site", // change in prod
+        redirectTo: "http://localhost:5173/new-site",
         scopes: "repo",
       },
     })
@@ -56,7 +55,6 @@ export default function NewSite() {
     else console.log("GitHub OAuth started:", data)
   }
 
-  // Fetch GitHub repos
   useEffect(() => {
     const fetchRepos = async () => {
       if (!session) {

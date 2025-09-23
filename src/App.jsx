@@ -104,7 +104,7 @@ export default function App() {
           <Route path="/org/:orgId/site/:siteId/:siteName/dashboard" element={<Dashboard />} />
           <Route path="/org/:orgId/site/:siteId/:siteName/deployments" element={<Deployments />} />
           <Route path="/org/:orgId/site/:siteId/:siteName/atri" element={<AtriChat />} />
-          <Route path="/org/:id/site/settings/domain-settings" element={<DomainSettings />} />
+          <Route path="/org/:orgId/site/:siteId/:siteName/settings/domain-settings" element={<DomainSettings />} />
           <Route
             path="/"
             element={
